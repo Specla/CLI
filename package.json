@@ -1,0 +1,24 @@
+{
+  "name": "specla",
+  "version": "0.0.1",
+  "homepage": "https://specla.io",
+  "description": "Specla client for the php Specla framework",
+  "main": "index.js",
+  "tags": [
+    "specla"
+  ],
+  "files": [
+    "index.js",
+    "bin",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "specla": "./bin/specla.js"
+  },
+  "man": "",
+  "author": "Frederik Kvartborg",
+  "license": "MIT"
+}
