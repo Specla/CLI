@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 
 'use strict';
-var Cli = require('./cli');
+var Cli = require('./libs/cli');
+var Log = require('./libs/log');
 
 
-var cli = new Cli({
+var App = new Cli({
   name: 'Specla',
 });
 
 
-cli.on(['help', '-h', 'h'], () => {
-  cli.log('Help...');
+App.on(['help', '-h'], require('./events/help'));
+App.on(['new', 'create', '-n', '-c'], require('./events/createProject'));
+App.on(['version', '-v'], () => Log.info(App.version));
+
+App.on('serve', () => {
+  Log.info('Starting dev server....');
+
+  while (true) {}
 });
 
 
-cli.on(['new', 'create'], (name) => {
-  if(name === undefined){
-    cli.info('To create a new Specla project you have to give it a name');
-    return;
-  }
 
-  cli.info('Creating a new Specla project: '+name);
-});
 
-cli.start();
+
