@@ -1,26 +1,23 @@
 #!/usr/bin/env node
 
 'use strict';
-var Cli = require('./libs/cli');
-var Log = require('./libs/log');
 
+const CLI = require('../libs/Cli');
+global.Log = require('../libs/Log');
 
-var App = new Cli({
-  name: 'Specla',
+global.Specla = new CLI({
+  name: 'specla',
+  path: __dirname+'/commands',
+  default: 'help'
 });
 
 
-App.on(['help', '-h'], require('./events/help'));
-App.on(['new', 'create', '-n', '-c'], require('./events/createProject'));
-App.on(['version', '-v'], () => Log.info(App.version));
+Specla.on('serve', 'serve');
+Specla.on('help', 'help');
 
-App.on('serve', () => {
-  Log.info('Starting dev server....');
 
-  while (true) {}
+Specla.on('missing', () => {
+  Log.warn('The command doesn\'t exist');
 });
 
-
-
-
-
+Specla.start();

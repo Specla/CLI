@@ -9,7 +9,9 @@ var Log = {
       return data;
   },
 
-  // console.log('\x1b[32m'+this.json(str)+'\x1b[0m'); green
+  ok(str){
+    console.log('\x1b[32m'+this.json(str)+'\x1b[0m');
+  },
 
   info(str){
     console.log(this.json(str));
