@@ -1,4 +1,4 @@
-const child_process = require('child_process');
+const fork = require('child_process').fork;
 
 function help() {
   Log.info(`
@@ -11,10 +11,16 @@ module.exports = () => {
     return help();
   }
 
-  try {
-    child_process.exec('node '+process.cwd()+'/server.js');
-  } catch(err) {
-    Log.info(process.cwd()+'/server.js');
-    Log.warn('The server.js file couldn\'t be found...');
-  }
+  let serve = fork(process.cwd()+'/server.js');
+
+  serve.on('message', (msg) => {
+    console.log(msg)
+  });
+
+  // try {
+  //   child_process.exec('node '+process.cwd()+'/server.js');
+  // } catch(err) {
+  //   Log.info(process.cwd()+'/server.js');
+  //   Log.warn('The server.js file couldn\'t be found...');
+  // }
 };

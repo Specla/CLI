@@ -2,9 +2,9 @@
 
 'use strict';
 
-const CLI = require('../libs/Cli');
+const CLI = require('./libs/Cli');
 const fs = require('fs');
-global.Log = require('../libs/Log');
+global.Log = require('./libs/Log');
 
 global.Specla = new CLI({
   name: 'specla',
