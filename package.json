@@ -1,6 +1,6 @@
 {
   "name": "specla",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://specla.io",
   "description": "Specla client for the Specla framework",
   "main": "bin/specla.js",
@@ -22,5 +22,12 @@
   },
   "man": "",
   "author": "Frederik Kvartborg",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta3",
+    "specla-autoloader": "0.0.4",
+    "specla-database": "^0.2.2"
+  }
 }
