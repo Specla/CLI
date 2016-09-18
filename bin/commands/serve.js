@@ -1,4 +1,5 @@
-const fork = require('child_process').fork;
+const spawn = require('child_process').spawn
+const fs = require('fs');
 
 function help() {
   Log.info(`
@@ -11,16 +12,17 @@ module.exports = () => {
     return help();
   }
 
-  let serve = fork(process.cwd()+'/server.js');
+  if(!fs.existsSync(process.cwd()+'/server.js')){
+    Log.info(process.cwd()+'/server.js');
+    Log.warn('The server.js file couldn\'t be found...');
+    return;
+  }
 
-  serve.on('message', (msg) => {
-    console.log(msg)
+  let serve = spawn('node', [process.cwd()+'/server.js']);
+
+  serve.stdout.on('data', msg => console.log(msg.toString()));
+
+  process.on('SIGINT', () => {
+    serve.kill('SIGINT');
   });
-
-  // try {
-  //   child_process.exec('node '+process.cwd()+'/server.js');
-  // } catch(err) {
-  //   Log.info(process.cwd()+'/server.js');
-  //   Log.warn('The server.js file couldn\'t be found...');
-  // }
 };
