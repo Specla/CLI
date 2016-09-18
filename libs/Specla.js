@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Database = require('specla-database');
 const Autoloader = require('specla-autoloader');
+
 const Server = require('./Server');
 
 class Specla {
@@ -17,15 +18,15 @@ class Specla {
 
     global.Specla = this;
 
-    this.setupDefaultEvents();
+    this.setupProcessEvents();
     this.setupSpecla();
   }
 
   /**
-   * Setup default events
+   * Setup process events
    * @private
    */
-  setupDefaultEvents(){
+  setupProcessEvents(){
     process.on('exit', this.trigger.bind(this, 'exit'));
     process.on('SIGINT', () => {
       this.trigger.bind(this, 'exit');
