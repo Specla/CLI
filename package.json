@@ -3,23 +3,32 @@
   "version": "0.0.7",
   "homepage": "https://specla.io",
   "description": "Specla client for the Specla framework",
-  "main": "libs/Server.js",
+  "main": "./libs/Specla.js",
   "tags": [
     "specla"
   ],
   "files": [
     "bin",
     "libs",
-    "test",
+    "tests",
+    "exports.js",
     "License.md",
     "Readme.md"
   ],
-  "scripts": {
-    "test": "mocha test/index.js"
-  },
   "bin": {
     "specla": "./bin/specla.js"
   },
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Specla/Specla.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Specla/Specla/issues"
+  },
+  "homepage": "https://github.com/Specla/Specla#readme",
   "man": "",
   "author": "Frederik Kvartborg",
   "license": "MIT",
