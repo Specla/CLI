@@ -11,8 +11,18 @@ module.exports = (path) => {
     path = process.cwd()+'/'+path;
   }
 
-  child_process.exec('git clone https://github.com/Specla/Framework.git '+path, () => {
-    child_process.exec('rm -rf '+path+'/.git');
-  });
+  if(fs.existsSync(path) && fs.lstatSync(path).isDirectory()){
+    Log.warn('The directory does already exists...');
+    return;
+  }
 
+  Log.info('Creating the Specla project...');
+  Log.info('Downloading framework from github...');
+  child_process.exec('git clone https://github.com/Specla/Framework.git '+path, () => {
+    Log.info('Installing dependencies...');
+    child_process.exec('cd '+path+'; npm install', () => {
+      child_process.exec('rm -rf '+path+'/.git');
+      console.log('DONE!');
+    });
+  });
 }
