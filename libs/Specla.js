@@ -65,6 +65,20 @@ class Specla {
   }
 
   /**
+   * Remove event listener
+   * @param {String}  event
+   * @return {Object} this
+   * @public
+   */
+  off(event){
+    if(this.events[event] === undefined){
+      return this;
+    }
+
+    delete this.events[event];
+  }
+
+  /**
    * Trigger event listener
    * @param {String}  event
    * @param {Mixed}   data
