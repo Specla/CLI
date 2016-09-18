@@ -11,7 +11,6 @@ global.Specla = new CLI({
   path: __dirname+'/commands',
   default: 'help'
 });
-let ps;
 
 Specla.on('create', 'create');
 Specla.on('serve', 'serve');
