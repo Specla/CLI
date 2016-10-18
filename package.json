@@ -37,6 +37,7 @@
     "pug": "^2.0.0-beta3",
     "specla-autoloader": "0.0.4",
     "specla-database": "^0.2.2",
-    "specla-router": "0.0.2"
+    "specla-router": "0.0.2",
+    "super-cli": "0.0.4"
   }
 }
