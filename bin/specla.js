@@ -2,27 +2,18 @@
 
 'use strict';
 
-const CLI = require('./libs/Cli');
-const fs = require('fs');
-global.Log = require('./libs/Log');
+const SuperCLI = require('super-cli');
+const CommandLoader = require('./libs/CommandLoader');
+global.packageInfo = require('../package.json');
 
-global.Specla = new CLI({
-  name: 'specla',
-  path: __dirname+'/commands',
-  default: 'help'
+const cli = new SuperCLI({
+  name: 'Specla'
 });
 
-Specla.on('create', 'create');
-Specla.on('serve', 'serve');
-Specla.on('help', 'help');
+new CommandLoader(cli);
 
-// try {
-//   let ps = JSON.parse(fs.readFileSync(process.cwd()+'/package.json', 'utf8'));
-//   ps.dependencies.specla;
-// } catch(err) {
-//   return Log.error('The current directory is not a Specla project...');
-// }
+cli.on('missing', () => {
+  cli.trigger('help');
+});
 
-require('./commands');
-
-Specla.start();
+cli.start();
