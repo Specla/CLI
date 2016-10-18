@@ -4,8 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Database = require('specla-database');
 const Autoloader = require('specla-autoloader');
-
-const Server = require('./Server');
+const Router = require('specla-router');
 
 class Specla {
 
@@ -19,7 +18,9 @@ class Specla {
     global.Specla = this;
 
     this.setupProcessEvents();
+    this.setupExpress();
     this.setupSpecla();
+    this.setupRoutes();
   }
 
   /**
@@ -35,6 +36,19 @@ class Specla {
   }
 
   /**
+   * Setup express
+   * @private
+   */
+  setupExpress(){
+    this.express = express();
+
+    this.express.use(express.static('public'));
+    this.express.use(bodyParser.urlencoded({ extended: true }));
+    this.express.set('view engine', this.config.view.engine);
+    this.express.set('views', this.config.view.path);
+  }
+
+  /**
    * Setup Specla and its modules
    * @private
    */
@@ -46,6 +60,18 @@ class Specla {
     });
 
     new Autoloader(this.config.autoloader.global).global();
+  }
+
+  /**
+   * Setup the router (default express router)
+   * @private
+   */
+  setupRoutes(){
+    this.modules.Router = new Router({
+      express: this.express
+    });
+
+    require(process.cwd()+'/app/routes');
   }
 
   /**
@@ -112,12 +138,10 @@ class Specla {
    * @public
    */
   listen(callback){
-    const server = new Server(this.config);
-    this.express = server.express;
-    server.listen(() => {
+    this.express.listen(this.config.server.port, () => {
       this.trigger('ready');
 
-      if(callback !== undefined){
+      if(typeof callback === 'function'){
         callback();
       }
     });

@@ -1,7 +1,7 @@
 {
   "name": "specla",
   "version": "0.0.8",
-  "homepage": "https://specla.io",
+  "homepage": "https://github.com/Specla/Specla#readme",
   "description": "Specla client for the Specla framework",
   "main": "./libs/Specla.js",
   "tags": [
@@ -28,7 +28,6 @@
   "bugs": {
     "url": "https://github.com/Specla/Specla/issues"
   },
-  "homepage": "https://github.com/Specla/Specla#readme",
   "man": "",
   "author": "Frederik Kvartborg",
   "license": "MIT",
@@ -37,6 +36,7 @@
     "express": "^4.14.0",
     "pug": "^2.0.0-beta3",
     "specla-autoloader": "0.0.4",
-    "specla-database": "^0.2.2"
+    "specla-database": "^0.2.2",
+    "specla-router": "0.0.1"
   }
 }
