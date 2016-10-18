@@ -113,6 +113,7 @@ class Specla {
    */
   listen(callback){
     const server = new Server(this.config);
+    this.express = server.express;
     server.listen(() => {
       this.trigger('ready');
 

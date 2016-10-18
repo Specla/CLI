@@ -1,1 +1,1 @@
-# Specla CLI
+# Specla
