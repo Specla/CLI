@@ -2,6 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const Database = require('specla-database');
 const Autoloader = require('specla-autoloader');
 const Router = require('specla-router');
@@ -71,7 +72,7 @@ class Specla {
       express: this.express
     });
 
-    require(process.cwd()+'/app/routes');
+    require(process.cwd()+'/api/routes');
   }
 
   /**
