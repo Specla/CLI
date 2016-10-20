@@ -54,7 +54,7 @@ class Specla {
    * @private
    */
   setupSpecla(){
-    this.modules.DB = new Database({
+    this.modules.db = new Database({
       host: this.config.database.host,
       port: this.config.database.port,
       database: this.config.database.database
@@ -68,7 +68,7 @@ class Specla {
    * @private
    */
   setupRoutes(){
-    this.modules.Router = new Router({
+    this.modules.router = new Router({
       express: this.express
     });
 
