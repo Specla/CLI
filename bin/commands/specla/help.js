@@ -32,6 +32,12 @@ const help = {
       .namespaced()['..']['..']
       .commands;
 
+    let customCommands = new Autoloader(['/api/commands'])
+      .setRootDir(process.cwd())
+      .namespaced();
+
+    commands.homebrewed = customCommands.api.commands;
+
     for(let command in commands){
       console.log(`   # ${command}`);
       this.getCommand(commands[command]);

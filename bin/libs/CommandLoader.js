@@ -8,6 +8,12 @@ class CommandLoader {
       .setRootDir(__dirname)
       .namespaced()['..'];
 
+    let customCommands = new Autoloader(['/api/commands'])
+      .setRootDir(process.cwd())
+      .namespaced();
+
+    commands.commands.custom = customCommands.api.commands;
+
     for(let command in commands){
       this.registerCommand(commands[command]);
     }
