@@ -60,7 +60,7 @@ class Specla {
       database: this.config.database.database
     });
 
-    this.modules.Model = db.Model;
+    this.modules.Model = this.modules.db.Model;
 
     new Autoloader(this.config.autoloader.global).global();
   }
