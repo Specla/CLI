@@ -16,7 +16,7 @@ class Specla {
     this.models = {};
     this.events = {};
 
-    global.Specla = this;
+    global[config.namespace || 'Specla'] = this;
 
     this.setupProcessEvents();
     this.setupExpress();
