@@ -1,11 +1,12 @@
 const Autoloader = require('specla-autoloader');
+require('colors');
 
 const help = {
   name: 'help',
   description: 'Print the help manual',
 
   handle(){
-    console.log(`\n { Specla } version ${packageInfo.version}\n`);
+    console.log(`\n ${'{'.gray.bold} ${'Specla'.bold} ${'}'.gray.bold}`, ` v${packageInfo.version}\n`);
 
     this.printUsage();
     this.printOptions();
@@ -13,30 +14,24 @@ const help = {
   },
 
   printUsage(){
-    console.log(` Usage:`);
+    console.log(` Usage:`.gray);
     console.log(`   specla [command] [options] [arguments] \n`);
   },
 
   printOptions(){
-    console.log(` Available Options:`);
+    console.log(` Available Options:`.gray);
     console.log(`   -h, --help   Get help`);
     console.log(``);
   },
 
   printCommands(){
 
-    console.log(` Available Commands:`);
+    console.log(` Available Commands:`.gray);
 
     let commands = new Autoloader(['../../commands'])
       .setRootDir(__dirname)
       .namespaced()['..']['..']
       .commands;
-
-    let customCommands = new Autoloader(['/api/commands'])
-      .setRootDir(process.cwd())
-      .namespaced();
-
-    commands.homebrewed = customCommands.api.commands;
 
     for(let command in commands){
       console.log(`   # ${command}`);
