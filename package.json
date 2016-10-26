@@ -37,7 +37,7 @@
     "express": "^4.14.0",
     "ora": "^0.3.0",
     "pug": "^2.0.0-beta3",
-    "specla-autoloader": "0.0.4",
+    "specla-autoloader": "0.0.5",
     "specla-database": "^0.2.2",
     "specla-router": "0.0.2",
     "super-cli": "0.0.4"
