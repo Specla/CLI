@@ -2,7 +2,6 @@
 
 'use strict';
 
-const Specla = require('specla');
 const SuperCLI = require('super-cli');
 const CommandLoader = require('./libs/CommandLoader');
 
