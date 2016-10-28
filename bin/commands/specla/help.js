@@ -1,4 +1,5 @@
 const Autoloader = require('specla-autoloader');
+const pkgInfo = require('../../../package.json');
 require('colors');
 
 const help = {
@@ -6,7 +7,7 @@ const help = {
   description: 'Print the help manual',
 
   handle(){
-    console.log(`\n ${'{'.gray.bold} ${'Specla'.bold} ${'}'.gray.bold}`, ` v${packageInfo.version}\n`);
+    console.log(`\n ${'{'.gray.bold} ${'Specla'.bold} ${'}'.gray.bold}`, ` v${pkgInfo.version}\n`);
 
     this.printUsage();
     this.printOptions();
