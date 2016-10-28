@@ -1,5 +1,7 @@
 # Specla
 
+[![Build Status](https://travis-ci.org/Specla/Specla.svg?branch=master)](https://travis-ci.org/Specla/Specla)
+
 ### Install
 ```sh
 npm install specla -g
