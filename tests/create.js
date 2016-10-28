@@ -5,7 +5,8 @@ const { exec } = require('child_process');
 
 describe('# Create new specla project', () => {
 
-  before((done) => {
+  before(function(done) {
+    this.timeout(30000);
     exec('npm link', () => {
       done();
     });
@@ -22,7 +23,8 @@ describe('# Create new specla project', () => {
     });
   });
 
-  after((done) => {
+  after(function(done){
+    this.timeout(30000);
     let currentDir = __dirname;
     exec('cd tests/project; npm link specla', () => {
       done();
