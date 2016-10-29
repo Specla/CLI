@@ -10,9 +10,7 @@
   "files": [
     "bin",
     "libs",
-    "tests",
-    "exports.js",
-    "License.md",
+    "LICENSE",
     "Readme.md"
   ],
   "bin": {
