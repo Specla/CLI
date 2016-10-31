@@ -6,8 +6,7 @@ const { exec } = require('child_process');
 function test(){
   require('./create');
   require('./version');
-  require('./make/controller');
-  require('./make/model');
+  require('./serve');
 }
 
 /**
