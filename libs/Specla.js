@@ -2,6 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const Database = require('specla-database');
 const Autoloader = require('specla-autoloader');
@@ -43,7 +44,7 @@ class Specla {
   setupExpress(){
     this.express = express();
 
-    this.express.use(express.static('public'));
+    this.express.use(express.static(this.config.publicFolder || 'public'));
     this.express.use(bodyParser.urlencoded({ extended: true }));
     this.express.set('view engine', this.config.view.engine);
     this.express.set('views', this.config.view.path);
