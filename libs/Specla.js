@@ -70,8 +70,8 @@ class Specla {
    * @private
    */
   setupRoutes(){
-    this.modules.router = new Router({
-      express: this.express
+    this.modules.router = new Router(this.express, {
+      path: process.cwd()+'/api/controllers'
     });
 
     require(process.cwd()+'/api/routes');
