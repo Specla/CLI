@@ -1,5 +1,3 @@
-'use strict';
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
@@ -7,6 +5,10 @@ const fs = require('fs');
 const Database = require('specla-database');
 const Autoloader = require('specla-autoloader');
 const Router = require('specla-router');
+
+if(fs.existsSync(process.cwd()+'/.env')){
+  require('dotenv').config();
+}
 
 class Specla {
 
@@ -142,7 +144,7 @@ class Specla {
    * @public
    */
   listen(callback){
-    this.express.listen(this.config.server.port, () => {
+    this.express.listen(this.config.api.port, () => {
       this.trigger('ready');
 
       if(typeof callback === 'function'){
