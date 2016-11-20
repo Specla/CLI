@@ -1,31 +1,27 @@
-const Autoloader = require('specla-autoloader');
+const Autoloader = require('specla-autoloader')
 
-class CommandLoader {
-
-  constructor(cli){
-    this.cli = cli;
-    let commands = new Autoloader(['../commands'])
+function CommandLoader (cli) {
+  let commands = new Autoloader(['../commands'])
       .setRootDir(__dirname)
-      .namespaced()['..'];
+      .namespaced()['..']
 
-    for(let command in commands){
-      this.registerCommand(commands[command]);
-    }
+  for (let command in commands) {
+    registerCommand(commands[command])
   }
 
-  registerCommand(command){
-    if(command.name === undefined){
-      return this.loadSubCommand(command);
+  function registerCommand (command) {
+    if (command.name === undefined) {
+      return loadSubCommand(command)
     }
 
-    this.cli.on(command.name, command.handle.bind(command));
+    cli.on(command.name, command.handle.bind(command))
   }
 
-  loadSubCommand(commands){
-    for(let command in commands){
-      this.registerCommand(commands[command]);
+  function loadSubCommand (commands) {
+    for (let command in commands) {
+      registerCommand(commands[command])
     }
   }
 }
 
-module.exports = CommandLoader;
+module.exports = CommandLoader

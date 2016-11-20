@@ -1,5 +1,5 @@
-const { spawn } = require('child_process');
-const fs = require('fs');
+const { spawn } = require('child_process')
+const fs = require('fs')
 
 const serve = {
   name: 'serve',
@@ -10,34 +10,34 @@ const serve = {
     port: ['-p=', '--port=']
   },
 
-  handle(){
-    this.shouldBeASpeclaProject();
+  handle () {
+    this.shouldBeASpeclaProject()
   },
 
-  shouldBeASpeclaProject(){
+  shouldBeASpeclaProject () {
     try {
-      let localPackage = require(process.cwd()+'/package.json');
-    } catch(err) {
-      return console.log('The current directory isn\'t a Specla project.');
+      require(process.cwd() + '/package.json')
+    } catch (err) {
+      return console.log('The current directory isn\'t a Specla project.')
     }
 
-    this.serve();
+    this.serve()
   },
 
-  serve(){
-    if(!fs.existsSync(process.cwd()+'/server.js')){
-      console.log('The server.js file couldn\'t be found...');
-      return;
+  serve () {
+    if (!fs.existsSync(process.cwd() + '/server.js')) {
+      console.log('The server.js file couldn\'t be found...')
+      return
     }
 
-    let serve = spawn('node', [process.cwd()+'/server.js']);
+    let serve = spawn('node', [process.cwd() + '/server.js'])
 
-    serve.stdout.on('data', msg => console.log(msg.toString()));
+    serve.stdout.on('data', msg => console.log(msg.toString()))
 
     process.on('SIGINT', () => {
-      serve.kill('SIGINT');
-    });
+      serve.kill('SIGINT')
+    })
   }
-};
+}
 
-module.exports = serve;
+module.exports = serve
