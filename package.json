@@ -11,11 +11,6 @@
     "test": "npm run lint && mocha tests/index.js",
     "lint": "standard"
   },
-  "standard": {
-    "ignore": [
-      "tests"
-    ]
-  },
   "tags": [
     "specla"
   ],

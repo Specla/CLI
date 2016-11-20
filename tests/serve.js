@@ -1,3 +1,5 @@
+/* global describe, it, before, after */
+
 const assert = require('assert')
 const request = require('request')
 const { spawn } = require('child_process')

@@ -1,3 +1,5 @@
+/* global describe, it, before, after */
+
 const { exec } = require('child_process')
 
 /**
