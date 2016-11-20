@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fs = require('fs')
+const path = require('path')
 
 const Database = require('specla-database')
 const Autoloader = require('specla-autoloader')
@@ -16,13 +17,13 @@ if (fs.existsSync(process.cwd() + '/.env')) {
 class Specla {
 
   constructor (config) {
-    this.config = config
+    this.config = config || require(path.join(process.cwd(), '/config.js'))
     this.express = null
     this.modules = {}
     this.models = {}
     this.events = {}
 
-    global[config.namespace || 'Specla'] = this
+    global[this.config.namespace || 'Specla'] = this
 
     this.setupProcessEvents()
     this.setupExpress()
@@ -77,10 +78,10 @@ class Specla {
    */
   setupRoutes () {
     this.modules.router = new Router(this.express, {
-      path: process.cwd() + '/api/controllers'
+      path: path.join(process.cwd(), '/api/controllers')
     })
 
-    require(process.cwd() + '/api/routes')
+    require(path.join(process.cwd(), '/api/routes'))
   }
 
   /**
