@@ -4,6 +4,13 @@
   "homepage": "https://github.com/Specla/Specla#readme",
   "description": "Specla client for the Specla framework",
   "main": "./libs/Specla.js",
+  "bin": {
+    "specla": "./bin/specla.js"
+  },
+  "scripts": {
+    "test": "npm run lint && mocha tests/index.js",
+    "lint": "standard"
+  },
   "tags": [
     "specla"
   ],
@@ -13,12 +20,6 @@
     "LICENSE",
     "Readme.md"
   ],
-  "bin": {
-    "specla": "./bin/specla.js"
-  },
-  "scripts": {
-    "test": "mocha tests/index.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Specla/Specla.git"
@@ -27,7 +28,7 @@
     "url": "https://github.com/Specla/Specla/issues"
   },
   "man": "",
-  "author": "Frederik Kvartborg",
+  "author": "Frederik Kvartborg Albertsen",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "mocha": "^3.1.2",
-    "request": "^2.76.0"
+    "request": "^2.76.0",
+    "standard": "^8.5.0"
   }
 }

@@ -1,83 +1,86 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs');
+const express = require('express')
+const bodyParser = require('body-parser')
+const fs = require('fs')
 
-const Database = require('specla-database');
-const Autoloader = require('specla-autoloader');
-const Router = require('specla-router');
+const Database = require('specla-database')
+const Autoloader = require('specla-autoloader')
+const Router = require('specla-router')
 
-if(fs.existsSync(process.cwd()+'/.env')){
-  require('dotenv').config();
+/**
+ * Set Environment variables if a .env file exists in the project root
+ */
+if (fs.existsSync(process.cwd() + '/.env')) {
+  require('dotenv').config()
 }
 
 class Specla {
 
-  constructor(config){
-    this.config = config;
-    this.express = null;
-    this.modules = {};
-    this.models = {};
-    this.events = {};
+  constructor (config) {
+    this.config = config
+    this.express = null
+    this.modules = {}
+    this.models = {}
+    this.events = {}
 
-    global[config.namespace || 'Specla'] = this;
+    global[config.namespace || 'Specla'] = this
 
-    this.setupProcessEvents();
-    this.setupExpress();
-    this.setupSpecla();
-    this.setupRoutes();
+    this.setupProcessEvents()
+    this.setupExpress()
+    this.setupSpecla()
+    this.setupRoutes()
   }
 
   /**
    * Setup process events
    * @private
    */
-  setupProcessEvents(){
-    process.on('exit', this.trigger.bind(this, 'exit'));
+  setupProcessEvents () {
+    process.on('exit', this.trigger.bind(this, 'exit'))
     process.on('SIGINT', () => {
-      this.trigger.bind(this, 'exit');
-      process.exit();
-    });
+      this.trigger.bind(this, 'exit')
+      process.exit()
+    })
   }
 
   /**
    * Setup express
    * @private
    */
-  setupExpress(){
-    this.express = express();
+  setupExpress () {
+    this.express = express()
 
-    this.express.use(express.static(this.config.publicFolder || 'public'));
-    this.express.use(bodyParser.urlencoded({ extended: true }));
-    this.express.set('view engine', this.config.view.engine);
-    this.express.set('views', this.config.view.path);
+    this.express.use(express.static(this.config.publicFolder || 'public'))
+    this.express.use(bodyParser.urlencoded({ extended: true }))
+    this.express.set('view engine', this.config.view.engine)
+    this.express.set('views', this.config.view.path)
   }
 
   /**
    * Setup Specla and its modules
    * @private
    */
-  setupSpecla(){
+  setupSpecla () {
     this.modules.db = new Database({
       host: this.config.database.host,
       port: this.config.database.port,
       database: this.config.database.database
-    });
+    })
 
-    this.modules.Model = this.modules.db.Model;
+    this.modules.Model = this.modules.db.Model
 
-    new Autoloader(this.config.autoloader.global).global();
+    new Autoloader(this.config.autoloader.global).global()
   }
 
   /**
    * Setup the router (default express router)
    * @private
    */
-  setupRoutes(){
+  setupRoutes () {
     this.modules.router = new Router(this.express, {
-      path: process.cwd()+'/api/controllers'
-    });
+      path: process.cwd() + '/api/controllers'
+    })
 
-    require(process.cwd()+'/api/routes');
+    require(process.cwd() + '/api/routes')
   }
 
   /**
@@ -87,14 +90,14 @@ class Specla {
    * @return {Object}   this
    * @public
    */
-  on(event, callback){
-    if(this.events[event] === undefined){
-      this.events[event] = [];
+  on (event, callback) {
+    if (this.events[event] === undefined) {
+      this.events[event] = []
     }
 
-    this.events[event].push(callback);
+    this.events[event].push(callback)
 
-    return this;
+    return this
   }
 
   /**
@@ -103,12 +106,12 @@ class Specla {
    * @return {Object} this
    * @public
    */
-  off(event){
-    if(this.events[event] === undefined){
-      return this;
+  off (event) {
+    if (this.events[event] === undefined) {
+      return this
     }
 
-    delete this.events[event];
+    delete this.events[event]
   }
 
   /**
@@ -118,24 +121,24 @@ class Specla {
    * @return {Object} this
    * @public
    */
-  trigger(event, ...data){
-    if(data.length === 1){
-      data = data[0];
+  trigger (event, ...data) {
+    if (data.length === 1) {
+      data = data[0]
     }
 
-    if(data.length === 0){
-      data = undefined;
+    if (data.length === 0) {
+      data = undefined
     }
 
-    if(this.events[event] === undefined){
-      return this;
+    if (this.events[event] === undefined) {
+      return this
     }
 
-    for(let _event of this.events[event]){
-      _event.apply(data);
+    for (let _event of this.events[event]) {
+      _event.apply(data)
     }
 
-    return this;
+    return this
   }
 
   /**
@@ -143,15 +146,15 @@ class Specla {
    * @param {Function} callback
    * @public
    */
-  listen(callback){
+  listen (callback) {
     this.express.listen(this.config.api.port, () => {
-      this.trigger('ready');
+      this.trigger('ready')
 
-      if(typeof callback === 'function'){
-        callback();
+      if (typeof callback === 'function') {
+        callback()
       }
-    });
+    })
   }
 }
 
-module.exports = Specla;
+module.exports = Specla
