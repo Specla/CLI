@@ -2,7 +2,7 @@
 
 const assert = require('assert')
 
-const Specla = require('specla')
+const Specla = require('../../lib/Specla')
 const config = require('../.tmp/config')
 const app = new Specla(config)
 

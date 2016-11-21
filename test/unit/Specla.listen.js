@@ -4,7 +4,7 @@ const assert = require('assert')
 const request = require('request')
 const { spawn } = require('child_process')
 
-const Specla = require('specla')
+const Specla = require('../../lib/Specla')
 const config = require('../.tmp/config')
 const app = new Specla(config)
 
@@ -21,6 +21,7 @@ describe('# Specla.listen:', () => {
   it('Should start the server', function (done) {
     this.timeout(5000)
     this.slow(3000)
+    spawn('npm', ['link', 'specla'])
     server = spawn('node', ['server.js'])
     setTimeout(() => {
       request('http://localhost:3000', (err, res, body) => {
