@@ -3,16 +3,21 @@
   "version": "0.0.10",
   "homepage": "https://github.com/Specla/Specla#readme",
   "description": "Specla client for the Specla framework",
-  "main": "./libs/Specla.js",
+  "main": "./lib/Specla.js",
   "bin": {
     "specla": "./bin/specla.js"
   },
   "scripts": {
-    "test": "npm run lint && mocha tests/index.js",
+    "test": "rm -rf ./test/.tmp && npm link && npm run lint && git clone https://github.com/specla/framework ./test/.tmp && cd ./test/.tmp && npm install && npm link specla && cd ../.. && ./node_modules/.bin/mocha ./test/* --recursive && rm -rf ./test/.tmp",
     "lint": "standard"
   },
   "tags": [
-    "specla"
+    "specla",
+    "mvc",
+    "web-framework",
+    "express",
+    "rest",
+    "api"
   ],
   "files": [
     "bin",
@@ -20,6 +25,9 @@
     "LICENSE",
     "Readme.md"
   ],
+  "engines": {
+    "node": ">=6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Specla/Specla.git"
