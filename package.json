@@ -9,8 +9,7 @@
   },
   "scripts": {
     "test": "rm -rf ./test/.tmp && npm link && npm run lint && git clone https://github.com/specla/framework ./test/.tmp && ./node_modules/.bin/mocha ./test/* --recursive && rm -rf ./test/.tmp",
-    "lint": "standard",
-    "prepublish": "git checkout master && npm test"
+    "lint": "standard"
   },
   "tags": [
     "specla",
