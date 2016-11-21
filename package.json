@@ -8,7 +8,7 @@
     "specla": "./bin/specla.js"
   },
   "scripts": {
-    "test": "git clone https://github.com/specla/framework ./test npm run lint && ./node_modules/.bin/mocha --recursive ./test",
+    "test": "rm -rf ./test/.tmp && npm link && npm run lint && git clone https://github.com/specla/framework ./test/.tmp && ./node_modules/.bin/mocha ./test/* --recursive && rm -rf ./test/.tmp",
     "lint": "standard"
   },
   "tags": [
