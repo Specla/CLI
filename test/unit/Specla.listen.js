@@ -24,7 +24,7 @@ describe('# Specla.listen:', () => {
     spawn('npm', ['link', 'specla'])
     server = spawn('node', ['server.js'])
     setTimeout(() => {
-      request(config.api.host+':'+config.api.port, (err, res, body) => {
+      request(config.api.host + ':' + config.api.port, (err, res, body) => {
         if (err) throw err
         assert.equal(200, res.statusCode)
         done()
