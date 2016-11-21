@@ -21,7 +21,6 @@ describe('# Specla.listen:', () => {
   it('Should start the server', function (done) {
     this.timeout(5000)
     this.slow(3000)
-    spawn('npm', ['link', 'specla'])
     server = spawn('node', ['server.js'])
     setTimeout(() => {
       request(config.api.host + ':' + config.api.port, (err, res, body) => {
