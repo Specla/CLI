@@ -12,7 +12,7 @@ describe('Specla.setupViewEngine', () => {
   })
 
   it('Should set the view engine and src from config', () => {
-    const { app, config } = new Specla({
+    const { app } = new Specla({
       view: {
         engine: 'some-other-engine',
         path: 'some-other-folder'
