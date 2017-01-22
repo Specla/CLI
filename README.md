@@ -9,7 +9,7 @@
 ### What?? another js web framework?
 This is properly what your are thinking when your are seeing this repo. But the
 goal of this project is not to create a new framework with a lot of new
-api's to learn. This is just an extention of the express framework.
+api's to learn. This is just an extension of the express framework.
 
 The basics of this extension is to make the web development environment in node
 more intuitive an expressive. I love the express framework and its simplicity,
