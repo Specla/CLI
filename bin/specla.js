@@ -9,12 +9,10 @@ const cli = new SuperCLI({
 
 commandLoader(cli)
 
-cli.on('missing', () => {
-  if (cli.has(['-v', '--version'])) {
-    return cli.trigger('version')
+cli.on('*', () => {
+  if (cli.option('-v', '--version')) {
+    return cli.run('version')
   }
 
-  cli.trigger('help')
+  cli.run('help')
 })
-
-cli.start()
