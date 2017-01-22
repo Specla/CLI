@@ -9,7 +9,7 @@ describe('Specla.setupCookieParser', () => {
       key: 'some-key'
     })
 
-    expect(app._router.stack[app._router.stack.length - 2].name)
+    expect(app._router.stack[3].name)
       .to.be.equal('cookieParser')
   })
 })
