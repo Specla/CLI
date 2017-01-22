@@ -9,7 +9,7 @@
 
 ### Install
 ```sh
-npm install specla -g
+npm install specla
 ```
 
 ```js
