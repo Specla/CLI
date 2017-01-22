@@ -1,6 +1,6 @@
 {
   "name": "specla",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "homepage": "https://github.com/Specla/Specla#readme",
   "description": "Specla client for the Specla framework",
   "main": "./lib/Specla.js",
