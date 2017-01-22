@@ -9,7 +9,7 @@ describe('Specla.setupSessionHandler', () => {
       key: 'test-key'
     })
 
-    expect(app._router.stack[app._router.stack.length - 1].name)
+    expect(app._router.stack[4].name)
       .to.be.equal('session')
   })
 })
