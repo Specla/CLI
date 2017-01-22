@@ -11,13 +11,13 @@ describe('Specla.loadConfig', () => {
   before(() => {
     fs.mkdirSync(testPath)
     process.chdir(testPath)
-    fs.writeFileSync(path.join(testPath, 'config.js'), `module.exports = {
+    fs.writeFileSync(path.join(testPath, 'specla.config.js'), `module.exports = {
       key: 'value'
     }`)
   })
 
   after(() => {
-    fs.unlinkSync(path.join(testPath, 'config.js'))
+    fs.unlinkSync(path.join(testPath, 'specla.config.js'))
     fs.rmdirSync(testPath)
     process.chdir(__dirname)
   })
