@@ -16,6 +16,8 @@ describe('Specla.constructor', () => {
 
   it('Should bind modules staticly to the Specla Object', () => {
     expect(Specla).to.have.property('app')
+    expect(Specla).to.have.property('config')
+    expect(Specla).to.have.property('upload')
     expect(Specla).to.have.property('router')
     expect(Specla).to.have.property('Controller')
   })
