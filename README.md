@@ -23,3 +23,7 @@ const { app } = new Specla()
 app.listen()
 
 ```
+
+### Implement life cycle events like
+  - `booted`: fired when the specla configuration is done
+    - Should bind things like config staticly to the Specla object
