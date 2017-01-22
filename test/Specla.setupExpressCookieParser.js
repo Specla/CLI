@@ -5,13 +5,11 @@ const Specla = require('../lib/Specla')
 
 describe('Specla.setupCookieParser', () => {
   it('Should register the cookieParser package as a middleware', () => {
-    let specla = new Specla({
+    let { app } = new Specla({
       key: 'some-key'
     })
 
-    expect(specla.config.key).to.be.equal('some-key')
-
-    specla = new Specla()
-    expect(specla.config.key).to.be.undefined
+    expect(app._router.stack[app._router.stack.length - 2].name)
+      .to.be.equal('cookieParser')
   })
 })
