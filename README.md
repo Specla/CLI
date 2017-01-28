@@ -95,3 +95,12 @@ When you instantiate Specla it will setup the following modules.
     are used too.
 
 #### More to come...
+
+### Example `specla.config.js`
+```js
+module.exports = {
+  key: 'secret-key',
+  host: 'http://localhost',
+  port: 3000
+}
+```
