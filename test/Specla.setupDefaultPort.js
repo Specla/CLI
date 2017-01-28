@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const { expect } = require('chai')
-const Specla = require('specla')
+const Specla = require('../lib/Specla')
 
 describe('Specla.setupDefaultPort', () => {
   it('Should set the default port to 3000', () => {
