@@ -1,18 +1,26 @@
 #!/usr/bin/env node
 
-const SuperCLI = require('super-cli')
-const commandLoader = require('./libs/CommandLoader')
+/* global cli */
 
-const cli = new SuperCLI({
+const SuperCLI = require('super-cli')
+const commands = require('./commands')
+
+global.cli = new SuperCLI({
   name: 'Specla'
 })
 
-commandLoader(cli)
+for (let command in commands) {
+  cli.on(command, commands[command])
+}
 
-cli.on('*', () => {
+cli.on('*', (arg) => {
   if (cli.option('-v', '--version')) {
     return cli.run('version')
   }
 
-  cli.run('help')
+  if (cli.option('-h', '--help') && !arg) {
+    return cli.run('help')
+  }
+
+  cli.run('serve')
 })
