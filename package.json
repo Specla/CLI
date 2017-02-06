@@ -5,7 +5,7 @@
   "description": "Specla client for the Specla framework",
   "main": "./lib/Specla.js",
   "bin": {
-    "specla": "./bin/specla.js"
+    "specla": "./bin/cli.js"
   },
   "scripts": {
     "test": "npm run lint && ./node_modules/.bin/mocha --recursive test",
