@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-/* global cli */
-
 const SuperCLI = require('super-cli')
 const commands = require('./commands')
 
-global.cli = new SuperCLI({
+let cli = new SuperCLI({
   name: 'Specla'
 })
+
+global.cli = cli
 
 for (let command in commands) {
   cli.on(command, commands[command])
