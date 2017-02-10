@@ -102,5 +102,12 @@ module.exports = {
   key: 'secret-key',
   host: 'http://localhost',
   port: 3000
+
+  paths: {
+    routes: 'path/to/routes.js',
+    controllers: 'where/is/your/controllers/located?',
+    middlewares: 'where/is/your/controllers/located?',
+    storage: 'application/data/path'
+  }
 }
 ```

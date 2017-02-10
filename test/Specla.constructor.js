@@ -19,6 +19,7 @@ describe('Specla.constructor', () => {
     expect(Specla).to.have.property('config')
     expect(Specla).to.have.property('upload')
     expect(Specla).to.have.property('router')
+    expect(Specla).to.have.property('Autoloader')
     expect(Specla).to.have.property('Controller')
   })
 })
