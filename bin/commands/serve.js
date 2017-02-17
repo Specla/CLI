@@ -13,7 +13,7 @@ const serve = () => {
 
   const { app, config } = new Specla()
 
-  app.listen(config.api.port || 3000)
+  app.listen(config.port || 3000)
 }
 
 function setupWatchMode () {
