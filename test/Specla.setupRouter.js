@@ -8,7 +8,7 @@ describe('Specla.setupRouter', () => {
     const specla = new Specla() // eslint-disable-line
     Specla.router.get('/test', () => {})
 
-    expect(Specla.router.stack[0].route)
+    expect(Specla.router.export().stack[0].route)
       .to.have.property('path')
       .and.to.be.equal('/test')
   })
