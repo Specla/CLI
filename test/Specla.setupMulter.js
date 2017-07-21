@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const { expect } = require('chai')
-const Specla = require('../lib/Specla')
+const Specla = require('../lib')
 
 describe('Specla.setupMulter', () => {
   it('Should setup express multer for handling file uploads', () => {

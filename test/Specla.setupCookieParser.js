@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const { expect } = require('chai')
-const Specla = require('../lib/Specla')
+const Specla = require('../lib')
 
 describe('Specla.setupCookieParser', () => {
   it('Should register the cookieParser package as a middleware', () => {

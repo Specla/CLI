@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const { expect } = require('chai')
-const Specla = require('../lib/Specla')
+const Specla = require('../lib')
 
 describe('Specla.loadConfig', () => {
   const testPath = path.resolve(__dirname, '.tmp')
