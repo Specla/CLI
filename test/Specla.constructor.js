@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const { expect } = require('chai')
-const Specla = require('../lib/Specla')
+const Specla = require('../lib')
 
 describe('Specla.constructor', () => {
   it('Should create a new Specla instance', () => {
@@ -19,7 +19,7 @@ describe('Specla.constructor', () => {
     expect(Specla).to.have.property('config')
     expect(Specla).to.have.property('upload')
     expect(Specla).to.have.property('router')
-    expect(Specla).to.have.property('Autoloader')
+    expect(Specla).to.have.property('Validator')
     expect(Specla).to.have.property('Controller')
   })
 })

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const { expect } = require('chai')
-const Specla = require('../lib/Specla')
+const Specla = require('../lib')
 
 describe('Specla.setupLusca', () => {
   it('Should register the lusca middleware', () => {

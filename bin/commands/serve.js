@@ -1,6 +1,6 @@
 /* global cli */
 const pm2 = require('pm2')
-const Specla = require('../../lib/Specla')
+const Specla = require('../../lib')
 const { exec, spawn } = require('child_process')
 const moment = require('moment')
 

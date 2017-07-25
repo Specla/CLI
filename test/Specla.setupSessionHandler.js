@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const { expect } = require('chai')
-const Specla = require('../lib/Specla')
+const Specla = require('../lib')
 
 describe('Specla.setupSessionHandler', () => {
   it('Should register the session handler as an express middleware', () => {

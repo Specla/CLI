@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 const { expect } = require('chai')
-const Specla = require('../lib/Specla')
+const Specla = require('../lib')
 
 describe('Specla.setupRouter', () => {
   it('Should regiser the Specla.router as an express router', () => {
