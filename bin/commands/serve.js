@@ -1,4 +1,6 @@
 /* global cli */
+const fs = require('fs')
+const path = require('path')
 const pm2 = require('pm2')
 const Specla = require('../../lib')
 const { exec, spawn } = require('child_process')
@@ -9,6 +11,10 @@ let devProcess = null
 const serve = () => {
   if (cli.option('--watch')) {
     return setupWatchMode()
+  }
+
+  if (fs.existsSync(path.join(process.cwd(), 'server.js'))) {
+    return require(path.resolve(process.cwd(), 'server.js'))
   }
 
   const { app, config } = new Specla()
