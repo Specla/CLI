@@ -11,5 +11,8 @@ export default class Specla extends Express {
   constructor (config) {
     super()
     this.config = new Config(Object.assign({}, defaultConfig, config))
+
+    // export static properties
+    Specla.config = this.config
   }
 }
