@@ -7,8 +7,8 @@ import dot from '@specla/dot-string'
 export default class Config {
   /**
    * Create a new configuration
-   * @param  {Object} config [description]
-   * @return {Config}        [description]
+   * @param  {Object} config
+   * @return {Config}
    */
   constructor (config = {}) {
     this._flattenConfig = {}
