@@ -1,5 +1,5 @@
 import Config from './Config'
-import defaultConfig from './defaultConfig'
+import defaultConfig from './config/defaultConfig'
 import Express from './Express'
 
 export default class Specla extends Express {
