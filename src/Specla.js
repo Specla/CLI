@@ -1,6 +1,7 @@
 import Config from './Config'
 import defaultConfig from './config/defaultConfig'
 import Express from './Express'
+import { version } from '../package.json'
 
 export default class Specla extends Express {
   /**
@@ -13,6 +14,7 @@ export default class Specla extends Express {
     this.config = new Config(Object.assign({}, defaultConfig, config))
 
     // export static properties
+    Specla.version = version
     Specla.config = this.config
   }
 }
