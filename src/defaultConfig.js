@@ -1,5 +1,6 @@
 export default {
   'config.path': './config',
-  'controllers.path': './app/controllers',
-  'models.path': './app/models'
+  'controller.path': './app/controllers',
+  'model.path': './app/models',
+  'view.path': './src/views'
 }
