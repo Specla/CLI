@@ -49,7 +49,7 @@ export default class Config {
       }
     }
 
-    this._parse({ ...configs, ...this._config })
+    this._parse(Object.assign({}, configs, this._config))
   }
 
   /**
