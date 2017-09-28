@@ -13,7 +13,7 @@ test('Should configure and create new application', () => {
 })
 
 test('Should expose the version from package.json as a static property', () => {
-  const specla = new Specla()
+  new Specla() // eslint-disable-line
   expect(Specla.version).toBe(version)
 })
 
