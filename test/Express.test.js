@@ -12,6 +12,7 @@ test('Should export the enhanced Router class', () => {
 
 test('Should export properties', () => {
   const app = new Express()
+  app.locals.settings.views = '/path/to/views'
   expect(app.locals).toMatchSnapshot()
   expect(app.mountpath).toMatchSnapshot()
 })

@@ -13,7 +13,7 @@ Object {
     "trust proxy": false,
     "trust proxy fn": [Function],
     "view": [Function],
-    "views": "/Users/kvartborg/Code/specla/specla/test/tmp/views",
+    "views": "/path/to/views",
     "x-powered-by": true,
   },
 }
