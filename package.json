@@ -54,9 +54,6 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": ["test"],
-    "watchPathIgnorePatterns": ["tmp"],
-    "modulePaths": [
-      "src"
-    ]
+    "watchPathIgnorePatterns": ["tmp"]
   }
 }

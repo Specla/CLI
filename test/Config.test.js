@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import fs from 'fs'
 import { exec } from 'child_process'
-import Config from 'Config'
+import Config from '../src/Config'
 import setup from './utils/setup'
 import cleanup from './utils/cleanup'
 
