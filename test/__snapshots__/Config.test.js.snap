@@ -14,9 +14,12 @@ Config {
         "dateFormat": "YY-mm-dd",
         "language": "en-US",
       },
+      "name": "app",
     },
-    "config": Object {
-      "path": "./config",
+    "specla": Object {
+      "config": Object {
+        "path": "./config",
+      },
     },
   },
   "_flattenConfig": Object {
@@ -28,7 +31,8 @@ Config {
     "app.host": "localhost",
     "app.locale.dateFormat": "YY-mm-dd",
     "app.locale.language": "en-US",
-    "config.path": "./config",
+    "app.name": "app",
+    "specla.config.path": "./config",
   },
 }
 `;

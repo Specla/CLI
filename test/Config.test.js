@@ -22,7 +22,7 @@ test('Should work without the .env file', () => {
 })
 
 test('Should load config files from the config folder and merge them together', () => {
-  const config = new Config({ 'config.path': './config' })
+  const config = new Config({ 'specla.config.path': './config' })
   expect(config).toMatchSnapshot()
 })
 

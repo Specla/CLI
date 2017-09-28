@@ -3,6 +3,7 @@ import fs from 'fs'
 const configFile = `const { env } = process
 
 export default {
+  name: 'app',
   default: 'test',
   host: env.APP_HOST,
   array: ['item1', 'item2'],

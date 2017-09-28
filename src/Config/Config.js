@@ -35,12 +35,12 @@ export default class Config {
    * @private
    */
   _loadConfigFiles () {
-    if (!this.get('config.path')) {
+    if (!this.get('specla.config.path')) {
       return
     }
 
     const configs = new Autoloader(
-      path.resolve(this.get('config.path'))
+      path.resolve(this.get('specla.config.path'))
     )
 
     for (const key in configs) {
