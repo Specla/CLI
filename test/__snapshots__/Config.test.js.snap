@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should load config files from the config folder and merge them together 1`] = `
+Config {
+  "_config": Object {
+    "app": Object {
+      "array": Array [
+        "item1",
+        "item2",
+      ],
+      "default": "test",
+      "host": "localhost",
+      "locale": Object {
+        "dateFormat": "YY-mm-dd",
+        "language": "en-US",
+      },
+    },
+    "config": Object {
+      "path": "./config",
+    },
+  },
+  "_flattenConfig": Object {
+    "app.array": Array [
+      "item1",
+      "item2",
+    ],
+    "app.default": "test",
+    "app.host": "localhost",
+    "app.locale.dateFormat": "YY-mm-dd",
+    "app.locale.language": "en-US",
+    "config.path": "./config",
+  },
+}
+`;
+
+exports[`Should work without a config folder 1`] = `
+Config {
+  "_config": Object {
+    "setting": true,
+  },
+  "_flattenConfig": Object {
+    "setting": true,
+  },
+}
+`;
