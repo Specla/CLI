@@ -10,7 +10,7 @@ export default class Specla {
    */
   constructor (config) {
     this.config = new Config(Object.assign({}, defaultConfig, config))
-    this._express = experss(this.config.get('express'))
+    this._express = express(this.config.get('express'))
   }
 
   /**
