@@ -1,4 +1,4 @@
-import Config from './Config'
+import Config from './config'
 import defaultConfig from './config/defaultConfig'
 import Express from './Express'
 import { version } from '../package.json'
