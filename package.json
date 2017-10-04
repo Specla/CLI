@@ -1,68 +1,63 @@
 {
   "name": "specla",
+  "description": "The core Specla module",
   "version": "0.4.1",
-  "homepage": "https://github.com/Specla/Specla#readme",
-  "description": "Specla client for the Specla framework",
-  "main": "./lib/index.js",
-  "bin": {
-    "specla": "./bin/cli.js"
-  },
+  "license": "MIT",
   "scripts": {
-    "test": "npm run lint && ./node_modules/.bin/mocha --recursive test",
-    "test:watch": "./node_modules/.bin/mocha --watch",
-    "lint": "./node_modules/.bin/standard | ./node_modules/.bin/snazzy",
-    "lint:fix": "./node_modules/.bin/standard --fix | ./node_modules/.bin/snazzy",
-    "prepublish": "npm test"
+    "test": "npm run lint && jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "standard | snazzy",
+    "lint:fix": "standard --fix | snazzy",
+    "build": "babel src/ -D -d ./lib",
+    "build:watch": "babel src/ -D -d ./lib --watch",
+    "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "prepublishOnly": "npm run build && npm test"
   },
-  "tags": [
-    "specla",
-    "mvc",
-    "web-framework",
-    "express",
-    "rest",
-    "api"
-  ],
+  "main": "lib/index.js",
   "files": [
-    "bin",
     "lib",
-    "LICENSE",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
-  "engines": {
-    "node": ">=6"
+  "keywords": [
+    "specla"
+  ],
+  "author": {
+    "name": "Frederik Kvartborg Albertsen",
+    "email": "hello@kvartborg.net",
+    "url": "https://kvartborg.net"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Specla/Specla.git"
+    "url": "https://github.com/specla/specla"
   },
   "bugs": {
-    "url": "https://github.com/Specla/Specla/issues"
+    "url": "https://github.com/specla/specla/issues"
   },
-  "man": "",
-  "author": "Frederik Kvartborg Albertsen",
-  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
   "dependencies": {
     "@specla/autoloader": "^1.0.0",
-    "@specla/validator": "^1.2.0",
-    "body-parser": "^1.15.2",
-    "compression": "^1.6.2",
-    "cookie-parser": "^1.4.3",
+    "@specla/dot-string": "^2.0.0",
     "dotenv": "^4.0.0",
-    "express": "^4.14.0",
-    "express-session": "^1.14.2",
-    "lusca": "^1.4.1",
-    "moment": "^2.17.1",
-    "multer": "^1.2.1",
-    "ora": "^1.1.0",
-    "pm2": "^2.4.0",
-    "pug": "^2.0.0-beta6",
-    "super-cli": "1.0.1"
+    "express": "^4.15.5"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.1.2",
-    "pre-commit": "^1.2.2",
-    "snazzy": "^6.0.0",
-    "standard": "^8.5.0"
+    "babel-cli": "^6.24.1",
+    "babel-jest": "^21.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "coveralls": "^2.13.1",
+    "jest": "^21.1.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "test"
+    ],
+    "watchPathIgnorePatterns": [
+      "tmp"
+    ]
   }
 }
