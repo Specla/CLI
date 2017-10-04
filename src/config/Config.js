@@ -39,6 +39,10 @@ export default class Config {
       return
     }
 
+    if (!fs.existsSync(path.resolve(this.get('specla.config.path')))) {
+      return
+    }
+
     const configs = new Autoloader(
       path.resolve(this.get('specla.config.path'))
     )
