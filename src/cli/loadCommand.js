@@ -1,17 +1,16 @@
 import fs from 'fs'
 import path from 'path'
 import autoloader from '@specla/autoloader'
+import Create from './commands/Create'
+import Help from './commands/Help'
+import Version from './commands/Version'
 
 /**
  * Load Specla, library and application commands
  * @return {Object}
  */
 export default function loadCommands (config) {
-  let importedCommands = {
-    create: require('./commands/Create'),
-    help: require('./commands/Help'),
-    version: require('./commands/Version')
-  }
+  let importedCommands = { Create, Help, Version }
 
   if (
     config.get('specla.command.path') &&
