@@ -1,7 +1,7 @@
 {
   "name": "specla",
   "description": "The core Specla module",
-  "version": "0.5.0-1",
+  "version": "0.5.0-2",
   "license": "MIT",
   "scripts": {
     "test": "npm run lint && jest --coverage",
