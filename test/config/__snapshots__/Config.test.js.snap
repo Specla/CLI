@@ -4,17 +4,8 @@ exports[`Should load config files from the config folder and merge them together
 Config {
   "_config": Object {
     "app": Object {
-      "array": Array [
-        "item1",
-        "item2",
-      ],
-      "default": "test",
       "host": "localhost",
-      "locale": Object {
-        "dateFormat": "YY-mm-dd",
-        "language": "en-US",
-      },
-      "name": "app",
+      "port": "3000",
     },
     "specla": Object {
       "config": Object {
@@ -23,15 +14,8 @@ Config {
     },
   },
   "_flattenConfig": Object {
-    "app.array": Array [
-      "item1",
-      "item2",
-    ],
-    "app.default": "test",
     "app.host": "localhost",
-    "app.locale.dateFormat": "YY-mm-dd",
-    "app.locale.language": "en-US",
-    "app.name": "app",
+    "app.port": "3000",
     "specla.config.path": "./config",
   },
 }

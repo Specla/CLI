@@ -1,9 +1,9 @@
 /* eslint-env jest */
 import fs from 'fs'
 import { exec } from 'child_process'
-import Config from '../src/config'
-import setup from './utils/setup'
-import cleanup from './utils/cleanup'
+import Config from '../../src/config'
+import setup from '../utils/setup'
+import cleanup from '../utils/cleanup'
 
 beforeEach(setup)
 afterEach(cleanup)
