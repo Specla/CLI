@@ -28,6 +28,7 @@ export default class Create extends Command {
     this._createFolder(projectPath)
     this._setupDotEnv()
     this._setupConfig()
+    this._setupCopyFiles()
   }
 
   /**
@@ -103,5 +104,15 @@ export default class Create extends Command {
     }
 
     this._createFile('config/app.js')
+  }
+
+  /**
+   * Copy files from the template folder to the project path
+   */
+  _setupCopyFiles () {
+    const files = ['.gitignore', '.env', '.babelrc', 'server.js']
+    for (const file of files) {
+      this._createFile(file)
+    }
   }
 }

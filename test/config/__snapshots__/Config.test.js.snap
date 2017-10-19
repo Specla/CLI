@@ -5,6 +5,7 @@ Config {
   "_config": Object {
     "app": Object {
       "host": "localhost",
+      "port": "3000",
     },
     "specla": Object {
       "config": Object {
@@ -14,6 +15,7 @@ Config {
   },
   "_flattenConfig": Object {
     "app.host": "localhost",
+    "app.port": "3000",
     "specla.config.path": "./config",
   },
 }
