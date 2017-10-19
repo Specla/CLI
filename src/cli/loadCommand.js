@@ -7,10 +7,11 @@ import autoloader from '@specla/autoloader'
  * @return {Object}
  */
 export default function loadCommands (config) {
-  let importedCommands = autoloader(
-    path.resolve(__dirname, 'commands'),
-    { flatten: true }
-  )
+  let importedCommands = {
+    create: require('./commands/Create'),
+    help: require('./commands/Help'),
+    version: require('./commands/Version')
+  }
 
   if (
     config.get('specla.command.path') &&
