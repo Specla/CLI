@@ -1,6 +1,5 @@
 import fs from 'fs'
-import setupDotEnv from './setupDotEnv'
-import setupConfig from './setupConfig'
+import Create from '../../src/cli/commands/Create'
 
 global.__repoPath = process.cwd()
 
@@ -13,6 +12,5 @@ export default () => {
 
   process.chdir(projectPath)
 
-  setupDotEnv()
-  setupConfig()
+  new Create() //eslint-disable-line
 }

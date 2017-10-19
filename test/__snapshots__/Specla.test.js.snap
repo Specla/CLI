@@ -8,6 +8,9 @@ Config {
     },
     "specla": Object {
       "autoRegisterModules": true,
+      "command": Object {
+        "path": "./app/commands",
+      },
       "config": Object {
         "path": "./config",
       },
@@ -25,6 +28,7 @@ Config {
   "_flattenConfig": Object {
     "app.name": "app",
     "specla.autoRegisterModules": true,
+    "specla.command.path": "./app/commands",
     "specla.config.path": "./config",
     "specla.controller.path": "./app/controllers",
     "specla.model.path": "./app/models",

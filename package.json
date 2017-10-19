@@ -16,6 +16,7 @@
   "main": "lib/index.js",
   "files": [
     "lib",
+    "templates",
     "README.md",
     "LICENSE"
   ],
@@ -38,23 +39,30 @@
     "node": ">=6"
   },
   "dependencies": {
-    "@specla/autoloader": "^1.0.0",
+    "@specla/autoloader": "^2.0.0-1",
     "@specla/dot-string": "^2.0.0",
     "dotenv": "^4.0.0",
-    "express": "^4.15.5"
+    "express": "^4.16.2",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-jest": "^21.0.2",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "coveralls": "^2.13.1",
-    "jest": "^21.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "coveralls": "^3.0.0",
+    "jest": "^21.2.1",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.2"
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
-      "test"
+      "test",
+      "src/cli"
     ],
     "watchPathIgnorePatterns": [
       "tmp"
