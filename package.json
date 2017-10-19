@@ -14,6 +14,9 @@
     "prepublishOnly": "npm run build && npm test"
   },
   "main": "lib/index.js",
+  "bin": {
+    "specla": "lib/cli/index.js"
+  },
   "files": [
     "lib",
     "templates",
