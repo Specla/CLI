@@ -11,15 +11,24 @@ export default class Help extends Command {
    * Command descriptions
    * @type {String}
    */
-  static description = 'test'
+  static description = 'List available commands'
 
+  /**
+   * Create a new instance of the help command
+   * @param  {Object} commands is a object with all loaded commands
+   * @return {Help}
+   */
   constructor (commands) {
     super()
     this.commands = commands
     console.log(this.help())
   }
 
-  printCommands () {
+  /**
+   * Create a sorted command list
+   * @return {String}
+   */
+  commandList () {
     const commands = Object.values(this.commands)
     const padding = commands.reduce((max, { signature }) => {
       if (signature.length > max) {
@@ -42,12 +51,16 @@ export default class Help extends Command {
     return commands.sort(sortCommands).map(buildCommandString).join('\n')
   }
 
+  /**
+   * Generate the help text
+   * @return {String}
+   */
   help () {
     return `Usage
   specla <command>
 
 commands:
-${this.printCommands()}
+${this.commandList()}
 `
   }
 }
