@@ -1,5 +1,6 @@
 import fs from 'fs'
-import { resolve } from 'path'
+import { move } from 'fs-extra'
+import { join } from 'path'
 import Command from '../Command'
 
 export default class Create extends Command {
@@ -22,13 +23,12 @@ export default class Create extends Command {
    */
   constructor (projectPath = '.') {
     super()
-
     this.projectPath = projectPath
     this._validatePath(projectPath)
     this._createFolder(projectPath)
     this._setupDotEnv()
     this._setupConfig()
-    this._setupCopyFiles()
+    this._setupFiles()
   }
 
   /**
@@ -68,27 +68,6 @@ export default class Create extends Command {
   }
 
   /**
-   * Return a template file
-   * @param  {String} path
-   * @return {String}
-   */
-  _template (path) {
-    return fs.readFileSync(resolve(__dirname, '../../../templates', path))
-  }
-
-  /**
-   * Create file from template
-   * @param  {String} file
-   * @return {Boolean}
-   */
-  _createFile (file) {
-    return fs.writeFileSync(
-      resolve(this.projectPath, file),
-      this._template(file)
-    )
-  }
-
-  /**
    * Create the base .env file
    */
   _setupDotEnv () {
@@ -109,10 +88,18 @@ export default class Create extends Command {
   /**
    * Copy files from the template folder to the project path
    */
-  _setupCopyFiles () {
-    const files = ['.gitignore', '.env', '.babelrc', 'server.js']
+  _setupFiles () {
+    const files = ['server.js']
     for (const file of files) {
       this._createFile(file)
+    }
+
+    const dotFiles = ['gitignore', 'env', 'babelrc']
+
+    for (const file of dotFiles) {
+      this._createFile(file)
+      const path = resolve(this.projectPath || process.cwd());
+      move(join(path, file), join(path, `.${file}`))
     }
   }
 }

@@ -2,6 +2,7 @@ import Config from './config'
 import defaultConfig from './config/defaultConfig'
 import Express from './Express'
 import { version } from '../package.json'
+import Command from './cli/Command'
 
 export default class Specla extends Express {
   /**
@@ -17,4 +18,8 @@ export default class Specla extends Express {
     Specla.version = version
     Specla.config = this.config
   }
+}
+
+Specla.modules = {
+  Command
 }

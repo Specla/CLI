@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+#!/usr/bin/env babel-node
+// TODO Should compile and cache esnext files on the fly, cached files could be placed in the storage folder
 
 import minimist from 'minimist'
 import Specla from '../Specla'
@@ -7,6 +8,8 @@ import loadCommands from './loadCommand'
 const specla = new Specla()
 const commands = loadCommands(specla.config)
 const args = minimist(process.argv.slice(2))
+
+global.specla = specla
 
 function run () {
   for (const command of args._) {
