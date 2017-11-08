@@ -1,6 +1,6 @@
 import fs from 'fs'
-import { move } from 'fs-extra'
-import { join } from 'path'
+import { moveSync } from 'fs-extra'
+import { resolve, join } from 'path'
 import Command from '../Command'
 
 export default class Create extends Command {
@@ -26,7 +26,6 @@ export default class Create extends Command {
     this.projectPath = projectPath
     this._validatePath(projectPath)
     this._createFolder(projectPath)
-    this._setupDotEnv()
     this._setupConfig()
     this._setupFiles()
   }
@@ -39,10 +38,12 @@ export default class Create extends Command {
   _validatePath (path) {
     try {
       if (!this._isPathEmpty(path)) {
-        console.log(`Path is not empty`)
-        return this.exit(1)
+        throw new Error(`Path not empty`)
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(`Path is not empty`)
+      return this.exit(1)
+    }
   }
 
   /**
@@ -68,13 +69,6 @@ export default class Create extends Command {
   }
 
   /**
-   * Create the base .env file
-   */
-  _setupDotEnv () {
-    return this._createFile('.env')
-  }
-
-  /**
    * Setup the config folder and create the main app config file
    */
   _setupConfig () {
@@ -89,7 +83,7 @@ export default class Create extends Command {
    * Copy files from the template folder to the project path
    */
   _setupFiles () {
-    const files = ['server.js']
+    const files = ['server.js', ]
     for (const file of files) {
       this._createFile(file)
     }
@@ -98,8 +92,8 @@ export default class Create extends Command {
 
     for (const file of dotFiles) {
       this._createFile(file)
-      const path = resolve(this.projectPath || process.cwd());
-      move(join(path, file), join(path, `.${file}`))
+      const path = resolve(this.projectPath)
+      moveSync(join(path, file), join(path, `.${file}`))
     }
   }
 }

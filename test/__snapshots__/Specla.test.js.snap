@@ -4,21 +4,20 @@ exports[`Should configure and create new application 1`] = `
 Config {
   "_config": Object {
     "app": Object {
-      "name": "app",
+      "name": "specla",
     },
     "specla": Object {
-      "autoRegisterModules": true,
       "command": Object {
-        "path": "./app/commands",
+        "path": "./api/commands",
       },
       "config": Object {
         "path": "./config",
       },
       "controller": Object {
-        "path": "./app/controllers",
+        "path": "./api/controllers",
       },
       "model": Object {
-        "path": "./app/models",
+        "path": "./api/models",
       },
       "view": Object {
         "path": "./src/views",
@@ -26,12 +25,11 @@ Config {
     },
   },
   "_flattenConfig": Object {
-    "app.name": "app",
-    "specla.autoRegisterModules": true,
-    "specla.command.path": "./app/commands",
+    "app.name": "specla",
+    "specla.command.path": "./api/commands",
     "specla.config.path": "./config",
-    "specla.controller.path": "./app/controllers",
-    "specla.model.path": "./app/models",
+    "specla.controller.path": "./api/controllers",
+    "specla.model.path": "./api/models",
     "specla.view.path": "./src/views",
   },
 }

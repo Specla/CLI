@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { resolve } from 'path'
 import Create from '../../src/cli/commands/Create'
 
 global.__repoPath = process.cwd()
