@@ -21,7 +21,7 @@ export default class Command {
    */
   _createFile (file) {
     return fs.writeFileSync(
-      resolve(this.projectPath || process.cwd(), file),
+      resolve(this.projectPath || process.cwd(), file),
       this._template(file)
     )
   }

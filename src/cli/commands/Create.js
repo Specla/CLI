@@ -83,7 +83,7 @@ export default class Create extends Command {
    * Copy files from the template folder to the project path
    */
   _setupFiles () {
-    const files = ['server.js', ]
+    const files = ['server.js']
     for (const file of files) {
       this._createFile(file)
     }

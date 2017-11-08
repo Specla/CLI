@@ -1,6 +1,7 @@
 import fs from 'fs'
 import { resolve } from 'path'
 import Command from '../Command'
+import { config } from 'specla'
 
 export default class CreateCommand extends Command {
   static signature = 'create:command'
@@ -11,7 +12,7 @@ export default class CreateCommand extends Command {
 
     const commandsPath = resolve(
       process.cwd(),
-      specla.config.get('specla.command.path')
+      config.get('specla.command.path')
     )
 
     if (!fs.existsSync(commandsPath)) {
