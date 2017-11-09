@@ -38,12 +38,10 @@ export default class Create extends Command {
   _validatePath (path) {
     try {
       if (!this._isPathEmpty(path)) {
-        throw new Error(`Path not empty`)
+        console.log(`Path is not empty`)
+        return this.exit(1)
       }
-    } catch (err) {
-      console.log(`Path is not empty`)
-      return this.exit(1)
-    }
+    } catch (err) {}
   }
 
   /**

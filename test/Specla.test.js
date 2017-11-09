@@ -2,7 +2,6 @@
 import Specla from '../src'
 import setup from './utils/setup'
 import cleanup from './utils/cleanup'
-import { version } from '../package.json'
 
 beforeEach(setup)
 afterEach(cleanup)
@@ -13,8 +12,8 @@ test('Should configure and create new application', () => {
 })
 
 test('Should expose the version from package.json as a static property', () => {
-  new Specla() // eslint-disable-line
-  expect(Specla.version).toBe(version)
+  const specla = new Specla()
+  expect(Specla.version).toBe(specla.version)
 })
 
 test('Should expose the config object as a static property', () => {

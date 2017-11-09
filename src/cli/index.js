@@ -9,8 +9,6 @@ const specla = new Specla()
 const commands = loadCommands(specla.config)
 const args = minimist(process.argv.slice(2))
 
-global.specla = specla
-
 function run () {
   for (const command of args._) {
     if (command === 'help') return new commands['help'](commands) // eslint-disable-line

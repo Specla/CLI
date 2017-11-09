@@ -56,11 +56,12 @@ export default class Help extends Command {
    * @return {String}
    */
   help () {
-    return `Usage
-  specla <command>
-
-commands:
-${this.commandList()}
-`
+    return [
+      'Usage',
+      'specla <command>',
+      '',
+      'commands',
+      this.commandList()
+    ].join('\n')
   }
 }
