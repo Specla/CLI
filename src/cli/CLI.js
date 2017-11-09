@@ -81,15 +81,16 @@ export default class CLI extends Specla {
         return new this._commands[command](...this._args)
       }
 
-      if (!this._command) {
-        for (const option in this._options) {
-          if (
-            command === '-' + option ||
-            command === '--' + option
+      if (this._command) {
+        continue;
+      }
 
-          ) {
-            return new this._commands[command]()
-          }
+      for (const option in this._options) {
+        if (
+          command === '-' + option ||
+          command === '--' + option
+        ) {
+          return new this._commands[command]()
         }
       }
     }
