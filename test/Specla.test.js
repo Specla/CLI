@@ -20,3 +20,19 @@ test('Should expose the config object as a static property', () => {
   const specla = new Specla()
   expect(Specla.config).toBe(specla.config)
 })
+
+test('Should only create a server instance if the runtime is server', () => {
+  const speclaCli = new Specla({ 'specla.runtime': 'cli' })
+  expect(speclaCli.server).toBe(undefined)
+  expect(Specla.server).toBe(null)
+  Specla.destroy()
+
+  const speclaServer = new Specla()
+  expect(speclaServer.server).toMatchSnapshot()
+  expect(speclaServer.server).toBe(Specla.server)
+})
+
+test('Should throw error if multiple instances of Specla is created', () => {
+  const specla = new Specla()
+  expect(() => new Specla()).toThrowErrorMatchingSnapshot()
+})

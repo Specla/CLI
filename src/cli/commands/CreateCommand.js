@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { resolve } from 'path'
 import Command from '../Command'
-import { config } from '../../Specla'
+import { config } from '../../'
 
 export default class CreateCommand extends Command {
   static signature = 'create:command'

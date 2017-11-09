@@ -16,9 +16,9 @@ test('Should load the .env file if it exists in the project root', () => {
 
 test('Should work without the .env file', () => {
   fs.unlinkSync('.env')
+  delete process.env.APP_HOST
   configure()
   expect(process.env.APP_HOST).toBe(undefined)
-  delete process.env.APP_HOST
 })
 
 test('Should load config files from the config folder and merge them together', () => {

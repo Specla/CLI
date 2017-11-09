@@ -3,6 +3,7 @@ import express from 'express'
 export default class Server {
   /**
    * Create a new instance of the server
+   * @param {Config} config
    * @return {Server}
    */
   constructor (config) {
