@@ -28,7 +28,7 @@ test('Should only create a server instance if the runtime is server', () => {
   Specla.destroy()
 
   const speclaServer = new Specla()
-  expect(speclaServer.server).toMatchSnapshot()
+  expect(!!speclaServer.server._express).toBe(true)
   expect(speclaServer.server).toBe(Specla.server)
 })
 

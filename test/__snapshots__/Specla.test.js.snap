@@ -51,27 +51,4 @@ Config {
 }
 `;
 
-exports[`Should only create a server instance if the runtime is server 1`] = `
-Server {
-  "_express": [Function],
-  "locals": Object {
-    "settings": Object {
-      "env": "test",
-      "etag": "weak",
-      "etag fn": [Function],
-      "jsonp callback name": "callback",
-      "query parser": "extended",
-      "query parser fn": [Function],
-      "subdomain offset": 2,
-      "trust proxy": false,
-      "trust proxy fn": [Function],
-      "view": [Function],
-      "views": "/Users/kvartborg/Code/specla/specla/test/tmp/views",
-      "x-powered-by": true,
-    },
-  },
-  "mountpath": "/",
-}
-`;
-
 exports[`Should throw error if multiple instances of Specla is created 1`] = `"Specla is already instanciated, use the .destroy() method if you want a new instance"`;
