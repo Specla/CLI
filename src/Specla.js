@@ -11,7 +11,6 @@ import Command from './cli/Command'
 let instance = null
 
 export default class Specla {
-
   /**
    * Version of specla
    * @type {String}

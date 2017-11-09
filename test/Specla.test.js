@@ -33,6 +33,6 @@ test('Should only create a server instance if the runtime is server', () => {
 })
 
 test('Should throw error if multiple instances of Specla is created', () => {
-  const specla = new Specla()
+  new Specla() // eslint-disable-line
   expect(() => new Specla()).toThrowErrorMatchingSnapshot()
 })
