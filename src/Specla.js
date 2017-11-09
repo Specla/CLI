@@ -4,7 +4,7 @@ import Express from './Express'
 import { version } from '../package.json'
 import Command from './cli/Command'
 
-export default class Specla extends Express {
+class Specla {
   /**
    * Version of specla
    * @type {String}
@@ -31,12 +31,11 @@ export default class Specla extends Express {
    * @return {Specla}
    */
   constructor (config) {
-    super()
     this.config = Specla.config.merge(config)
     this.version = Specla.version
   }
 }
 
-export const version = Specla.version
+export default Specla
 export const config = Specla.config
 export const modules = Specla.modules
