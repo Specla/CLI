@@ -42,6 +42,11 @@ function loadConfigFiles (config) {
   return Object.assign({}, configs)
 }
 
+/**
+ * Create the config object from multiple objects
+ * @param  {Object} configs
+ * @return {Config}
+ */
 export default function configure (...configs) {
   const config = new Config(Object.assign({}, ...configs))
   setupDotEnv()
