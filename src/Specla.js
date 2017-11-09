@@ -45,7 +45,7 @@ export default class Specla {
   constructor (config) {
     if (Specla.isInstantiated) {
       throw new Error(
-        'Specla is already instanciated, use the .destroy() method if you want a new instance'
+        'Specla is already instanciated, use the .reset() method if you want a new instance'
       )
     }
 
@@ -71,7 +71,7 @@ export default class Specla {
   /**
    * Destroy specla singleton
    */
-  static destroy () {
+  static reset () {
     instance = null
     Specla.server = null
     Specla.config = configure(defaultConfig)

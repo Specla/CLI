@@ -25,7 +25,7 @@ test('Should only create a server instance if the runtime is server', () => {
   const speclaCli = new Specla({ 'specla.runtime': 'cli' })
   expect(speclaCli.server).toBe(undefined)
   expect(Specla.server).toBe(null)
-  Specla.destroy()
+  Specla.reset()
 
   const speclaServer = new Specla()
   expect(!!speclaServer.server._express).toBe(true)

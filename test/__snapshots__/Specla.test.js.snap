@@ -51,4 +51,4 @@ Config {
 }
 `;
 
-exports[`Should throw error if multiple instances of Specla is created 1`] = `"Specla is already instanciated, use the .destroy() method if you want a new instance"`;
+exports[`Should throw error if multiple instances of Specla is created 1`] = `"Specla is already instanciated, use the .reset() method if you want a new instance"`;
