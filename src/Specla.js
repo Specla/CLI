@@ -4,12 +4,13 @@ import Server from './Server'
 import { version } from '../package.json'
 import Command from './cli/Command'
 
+/**
+ * Instance of the specla singleton
+ * @type {Specla}
+ */
+let instance = null
+
 export default class Specla {
-  /**
-   * Specla instance
-   * @type {Specla}
-   */
-  static _instance = null
 
   /**
    * Version of specla
@@ -57,7 +58,7 @@ export default class Specla {
       this.server = Specla.server
     }
 
-    Specla._instance = this
+    instance = this
   }
 
   /**
@@ -65,14 +66,14 @@ export default class Specla {
    * @type {Boolean}
    */
   static get isInstantiated () {
-    return Specla._instance
+    return !!instance
   }
 
   /**
    * Destroy specla singleton
    */
   static destroy () {
-    Specla._instance = null
+    instance = null
     Specla.server = null
     Specla.config = configure(defaultConfig)
   }
