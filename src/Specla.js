@@ -36,3 +36,7 @@ export default class Specla extends Express {
     this.version = Specla.version
   }
 }
+
+export const version = Specla.version
+export const config = Specla.config
+export const modules = Specla.modules
