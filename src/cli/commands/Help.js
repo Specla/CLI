@@ -77,7 +77,7 @@ export default class Help extends Command {
   help () {
     return [
       'Usage',
-      'specla <command>',
+      '  specla <command>',
       '',
       'commands',
       this.commandList()
