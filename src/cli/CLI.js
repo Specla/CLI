@@ -82,7 +82,7 @@ export default class CLI extends Specla {
       }
 
       if (this._command) {
-        continue;
+        continue
       }
 
       for (const option in this._options) {
