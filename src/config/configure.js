@@ -6,7 +6,6 @@ import Config from '@specla/config'
 
 /**
  * Load and setup the .env file from the project root
- * @private
  */
 function setupDotEnv () {
   if (!fs.existsSync(path.resolve(process.cwd(), '.env'))) {
@@ -18,7 +17,8 @@ function setupDotEnv () {
 
 /**
  * Load configfiles from the config path and merge it with the current config
- * @private
+ * @param {Config} config
+ * @return {Object}
  */
 function loadConfigFiles (config) {
   if (!config.get('specla.config.path')) {
