@@ -1,9 +1,9 @@
 import express from 'express'
 
-export default class Express {
+export default class Server {
   /**
-   * Create a new instance of the express application
-   * @return {Express}
+   * Create a new instance of the server
+   * @return {Server}
    */
   constructor (config) {
     this._express = express()
@@ -11,7 +11,7 @@ export default class Express {
     this.mountpath = this._express.mountpath
 
     // static properties
-    Express.Router = express.Router
+    Server.Router = express.Router
   }
 
   /**
@@ -22,7 +22,7 @@ export default class Express {
   use (...args) {
     // Should find the correct express instance
     for (let i = 0; i < args.length; i++) {
-      if (args[i] instanceof Express) {
+      if (args[i] instanceof Server) {
         args[i] = args[i]._express
       }
     }

@@ -1,6 +1,6 @@
 import configure from './config/configure'
 import defaultConfig from './config/defaultConfig'
-import Express from './Express'
+import Server from './Server'
 import { version } from '../package.json'
 import Command from './cli/Command'
 
