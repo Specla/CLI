@@ -66,8 +66,7 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": [
-      "test",
-      "src/cli"
+      "test"
     ],
     "watchPathIgnorePatterns": [
       "tmp"

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should load the specla commands 1`] = `
+Object {
+  "--help": [Function],
+  "--version": [Function],
+  "-h": [Function],
+  "-v": [Function],
+  "create": [Function],
+  "create:command": [Function],
+  "help": [Function],
+  "version": [Function],
+}
+`;
+
+exports[`Should parse arguments and options 1`] = `
+Array [
+  "argument",
+]
+`;
+
+exports[`Should parse arguments and options 2`] = `
+Object {
+  "h": true,
+  "lastname": "lastname",
+  "name": "name",
+  "t": true,
+}
+`;
+
+exports[`Should trigger run the command 1`] = `
+Help {
+  "_commands": Object {
+    "--help": [Function],
+    "--version": [Function],
+    "-h": [Function],
+    "-v": [Function],
+    "create": [Function],
+    "create:command": [Function],
+    "help": [Function],
+    "version": [Function],
+  },
+}
+`;

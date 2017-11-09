@@ -7,7 +7,7 @@ export default class Version extends Command {
    * Signature of the command
    * @type {String}
    */
-  static signature = 'version'
+  static signature = ['-v', '--version', 'version']
 
   /**
    * Description of the command
@@ -19,7 +19,7 @@ export default class Version extends Command {
    * Create a new instance of the Version command
    * @return {Version}
    */
-  constructor () {
+  constructor (...args) {
     super()
     let version = 'unknown'
     if (fs.existsSync(path.resolve(process.cwd(), 'package.json'))) {
