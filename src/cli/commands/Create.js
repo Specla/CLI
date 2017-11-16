@@ -1,6 +1,6 @@
 import fs from 'fs'
-import { join } from 'path'
 import GeneratorCommand from '../GeneratorCommand'
+import { config } from '../../'
 
 export default class Create extends GeneratorCommand {
   /**
@@ -68,11 +68,7 @@ export default class Create extends GeneratorCommand {
    * Setup the config folder and create the main app config file
    */
   _setupConfig () {
-    if (!fs.existsSync(join(this.destinationPath, 'config'))) {
-      fs.mkdirSync(join(this.destinationPath, 'config'))
-    }
-
-    this.copyTemplate('config/app.js')
+    this.copyTemplate(`${config.get('specla.config.path')}/app.js`)
   }
 
   /**

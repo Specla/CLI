@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { resolve, join } from 'path'
+import { resolve, join, sep, dirname } from 'path'
 import Command from './Command'
 
 export default class GeneratorCommand extends Command {
@@ -36,10 +36,35 @@ export default class GeneratorCommand extends Command {
    */
   copyTemplate (file, destination) {
     const templateFile = fs.readFileSync(join(this.templatePath, file))
+    const dest = join(this.destinationPath, destination || file)
+    this._mkdir(dest)
 
-    fs.writeFileSync(
-      join(this.destinationPath, destination || file),
-      templateFile
-    )
+    fs.writeFileSync(dest, templateFile)
+  }
+
+  /**
+   * Make path for a file
+   * @param  {String} path
+   */
+  _mkdir (path) {
+    const dirs = dirname(path).split(sep)
+    dirs.shift()
+
+    if (dirs.length === 0) {
+      return
+    }
+
+    const paths = ['']
+
+    for (const dir of dirs) {
+      paths.push(dir)
+
+      if (fs.existsSync(paths.join(sep))) {
+        // path exists
+        continue
+      }
+
+      fs.mkdirSync(paths.join(sep))
+    }
   }
 }

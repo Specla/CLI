@@ -1,24 +1,15 @@
-import fs from 'fs'
-import { resolve } from 'path'
-import Command from '../Command'
+import GeneratorCommand from '../GeneratorCommand'
 import { config } from '../../'
 
-export default class CreateCommand extends Command {
+export default class CreateCommand extends GeneratorCommand {
   static signature = 'create:command'
   static description = 'Create a new command'
 
   constructor (name) {
     super()
-
-    const commandsPath = resolve(
-      process.cwd(),
-      config.get('specla.command.path')
+    this.copyTemplate(
+      `${config.get('specla.command.path')}/TemplateCommand.js`,
+      `${config.get('specla.command.path')}/${name}.js`
     )
-
-    if (!fs.existsSync(commandsPath)) {
-      fs.mkdirSync(commandsPath)
-    }
-
-    this._createFile('api/commands/TemplateCommand.js')
   }
 }
