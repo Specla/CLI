@@ -1,9 +1,8 @@
 import fs from 'fs'
-import { moveSync } from 'fs-extra'
-import { resolve, join } from 'path'
-import Command from '../Command'
+import { join } from 'path'
+import GeneratorCommand from '../GeneratorCommand'
 
-export default class Create extends Command {
+export default class Create extends GeneratorCommand {
   /**
    * Signature of the command
    * @type {String}
@@ -18,14 +17,13 @@ export default class Create extends Command {
 
   /**
    * Create a new instance of the
-   * @param  {String} [projectPath='.']
+   * @param  {String} [path='.']
    * @return {Create}
    */
-  constructor (projectPath = '.') {
-    super()
-    this.projectPath = projectPath
-    this._validatePath(projectPath)
-    this._createFolder(projectPath)
+  constructor (path = '.') {
+    super(path)
+    this._validatePath(this.destinationPath)
+    this._createFolder(this.destinationPath)
     this._setupConfig()
     this._setupFiles()
   }
@@ -50,7 +48,7 @@ export default class Create extends Command {
    * @return {Boolean}
    */
   _isPathEmpty (path) {
-    return fs.readdirSync(resolve(path)).length === 0
+    return fs.readdirSync(path).length === 0
   }
 
   /**
@@ -70,11 +68,11 @@ export default class Create extends Command {
    * Setup the config folder and create the main app config file
    */
   _setupConfig () {
-    if (!fs.existsSync(resolve(this.projectPath, 'config'))) {
-      fs.mkdirSync(resolve(this.projectPath, 'config'))
+    if (!fs.existsSync(join(this.destinationPath, 'config'))) {
+      fs.mkdirSync(join(this.destinationPath, 'config'))
     }
 
-    this._createFile('config/app.js')
+    this.copyTemplate('config/app.js')
   }
 
   /**
@@ -83,15 +81,13 @@ export default class Create extends Command {
   _setupFiles () {
     const files = ['server.js']
     for (const file of files) {
-      this._createFile(file)
+      this.copyTemplate(file)
     }
 
     const dotFiles = ['gitignore', 'env', 'babelrc']
 
     for (const file of dotFiles) {
-      this._createFile(file)
-      const path = resolve(this.projectPath)
-      moveSync(join(path, file), join(path, `.${file}`))
+      this.copyTemplate(file, `.${file}`)
     }
   }
 }
