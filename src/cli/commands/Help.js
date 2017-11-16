@@ -79,7 +79,7 @@ export default class Help extends Command {
       'Usage',
       '  specla <command>',
       '',
-      'commands',
+      'Commands',
       this.commandList()
     ].join('\n')
   }
