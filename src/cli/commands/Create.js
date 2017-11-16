@@ -24,8 +24,7 @@ export default class Create extends GeneratorCommand {
     super(path)
     this._validatePath(this.destinationPath)
     this._createFolder(this.destinationPath)
-    this._setupConfig()
-    this._setupFiles()
+    this._setupDefaultFiles()
   }
 
   /**
@@ -65,17 +64,10 @@ export default class Create extends GeneratorCommand {
   }
 
   /**
-   * Setup the config folder and create the main app config file
-   */
-  _setupConfig () {
-    this.copyTemplate(`${config.get('specla.config.path')}/app.js`)
-  }
-
-  /**
    * Copy files from the template folder to the project path
    */
-  _setupFiles () {
-    const files = ['server.js']
+  _setupDefaultFiles () {
+    const files = [`${config.get('specla.config.path')}/app.js`, 'server.js']
     for (const file of files) {
       this.copyTemplate(file)
     }
