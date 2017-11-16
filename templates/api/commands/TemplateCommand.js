@@ -1,6 +1,6 @@
-import { Command } from 'specla/modules'
+import { modules } from 'specla'
 
-export default class TemplateCommand extends Command {
+export default class TemplateCommand extends modules.Command {
   static signature = 'template:command'
   static description = 'This the boilerplate code for a command'
 
