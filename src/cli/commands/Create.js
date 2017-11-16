@@ -22,9 +22,8 @@ export default class Create extends GeneratorCommand {
    */
   constructor (path = '.') {
     super(path)
-    this._validatePath(this.destinationPath)
-    this._createFolder(this.destinationPath)
-    this._setupDefaultFiles()
+    this.validatePath(this.destinationPath)
+    this.setupDefaultFiles()
   }
 
   /**
@@ -32,42 +31,30 @@ export default class Create extends GeneratorCommand {
    * with status code 1
    * @param  {String} path
    */
-  _validatePath (path) {
+  validatePath (path) {
     try {
-      if (!this._isPathEmpty(path)) {
-        console.log(`Path is not empty`)
-        return this.exit(1)
+      if (!fs.existsSync(path)) {
+        return
       }
-    } catch (err) {}
-  }
 
-  /**
-   * Check if a path is empty
-   * @param  {String}  path
-   * @return {Boolean}
-   */
-  _isPathEmpty (path) {
-    return fs.readdirSync(path).length === 0
-  }
-
-  /**
-   * Create a new folder
-   * @param  {String} path
-   * @return {Boolean}
-   */
-  _createFolder (path) {
-    if (fs.existsSync(path)) {
-      return false
+      if (fs.readdirSync(path).length > 0) {
+        throw new Error('Path is not empty')
+      }
+    } catch (err) {
+      console.log(err.message)
+      this.exit(1)
     }
-
-    return fs.mkdirSync(path)
   }
 
   /**
    * Copy files from the template folder to the project path
    */
-  _setupDefaultFiles () {
-    const files = [`${config.get('specla.config.path')}/app.js`, 'server.js']
+  setupDefaultFiles () {
+    const files = [
+      `${config.get('specla.config.path')}/app.js`,
+      'server.js'
+    ]
+
     for (const file of files) {
       this.copyTemplate(file)
     }

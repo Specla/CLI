@@ -50,20 +50,11 @@ export default class GeneratorCommand extends Command {
     const dirs = dirname(path).split(sep)
     dirs.shift()
 
-    if (dirs.length === 0) {
-      return
-    }
-
     const paths = ['']
 
     for (const dir of dirs) {
       paths.push(dir)
-
-      if (fs.existsSync(paths.join(sep))) {
-        // path exists
-        continue
-      }
-
+      if (fs.existsSync(paths.join(sep))) continue
       fs.mkdirSync(paths.join(sep))
     }
   }
