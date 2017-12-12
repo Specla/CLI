@@ -30,7 +30,9 @@ function loadConfigFiles (config) {
   }
 
   const configs = new Autoloader(
-    path.resolve(config.get('specla.config.path'))
+    path.resolve(
+      config.get('specla.config.path')
+    )
   )
 
   for (const key in configs) {

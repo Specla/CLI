@@ -1,12 +1,6 @@
 {
   "plugins": [
     "transform-es2015-modules-commonjs",
-    "transform-class-properties",
-    ["module-resolver", {
-      "root": ["./"],
-      "alias": {
-        "api": "./api"
-      }
-    }]
+    "transform-class-properties"
   ]
 }

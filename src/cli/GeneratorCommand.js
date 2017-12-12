@@ -1,6 +1,7 @@
 import fs from 'fs'
 import { resolve, join, sep, dirname } from 'path'
 import Command from './Command'
+import { config } from '../'
 
 export default class GeneratorCommand extends Command {
   /**
@@ -10,7 +11,7 @@ export default class GeneratorCommand extends Command {
    */
   constructor (path = '.') {
     super()
-    this._path = resolve(process.cwd(), path)
+    this._path = resolve(process.cwd(), path, config.get('specla.src.path'))
   }
 
   /**

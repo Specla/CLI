@@ -1,4 +1,5 @@
 import GeneratorCommand from '../GeneratorCommand'
+import Build from './build/Build'
 import { config } from '../../'
 
 export default class CreateCommand extends GeneratorCommand {
@@ -11,5 +12,6 @@ export default class CreateCommand extends GeneratorCommand {
       `${config.get('specla.command.path')}/TemplateCommand.js`,
       `${config.get('specla.command.path')}/${name}.js`
     )
+    new Build(`${config.get('specla.command.path')}/${name}.js`)
   }
 }

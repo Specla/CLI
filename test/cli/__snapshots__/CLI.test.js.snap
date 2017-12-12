@@ -6,9 +6,11 @@ Object {
   "--version": [Function],
   "-h": [Function],
   "-v": [Function],
+  "build": [Function],
   "create": [Function],
   "create:command": [Function],
   "help": [Function],
+  "serve": [Function],
   "version": [Function],
 }
 `;
@@ -35,9 +37,11 @@ Help {
     "--version": [Function],
     "-h": [Function],
     "-v": [Function],
+    "build": [Function],
     "create": [Function],
     "create:command": [Function],
     "help": [Function],
+    "serve": [Function],
     "version": [Function],
   },
 }

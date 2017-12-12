@@ -1,52 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should configure and create new application 1`] = `
-Config {
-  "_config": Object {
-    "app": Object {
-      "name": "specla",
-      "port": 3000,
+Object {
+  "specla": Object {
+    "build": Object {
+      "path": "./build",
     },
-    "specla": Object {
-      "command": Object {
-        "path": "./api/commands",
-      },
-      "config": Object {
-        "path": "./config",
-      },
-      "controller": Object {
-        "path": "./api/controllers",
-      },
-      "model": Object {
-        "path": "./api/models",
-      },
-      "public": Object {
-        "path": "./public",
-      },
-      "runtime": "server",
-      "storage": Object {
-        "app": "./storage/app",
-        "cache": "./storage/cache",
-        "path": "./storage",
-      },
-      "view": Object {
-        "path": "./src/views",
-      },
+    "command": Object {
+      "path": "./build/commands",
     },
-  },
-  "_flattenConfig": Object {
-    "app.name": "specla",
-    "app.port": 3000,
-    "specla.command.path": "./api/commands",
-    "specla.config.path": "./config",
-    "specla.controller.path": "./api/controllers",
-    "specla.model.path": "./api/models",
-    "specla.public.path": "./public",
-    "specla.runtime": "server",
-    "specla.storage.app": "./storage/app",
-    "specla.storage.cache": "./storage/cache",
-    "specla.storage.path": "./storage",
-    "specla.view.path": "./src/views",
+    "config": Object {
+      "path": "./build/config",
+    },
+    "src": Object {
+      "path": "./src",
+    },
   },
 }
 `;

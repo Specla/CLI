@@ -1,6 +1,5 @@
 import configure from './config/configure'
 import defaultConfig from './config/defaultConfig'
-import Server from './Server'
 import { version } from '../package.json'
 import Command from './cli/Command'
 
@@ -22,12 +21,6 @@ export default class Specla {
    * @type {Object}
    */
   static config = configure(defaultConfig)
-
-  /**
-   * Specla server instance, only set if the runtime is equal to server
-   * @type {Server}
-   */
-  static server = null
 
   /**
    * Modules
@@ -52,11 +45,6 @@ export default class Specla {
     this.config = Specla.config.merge(config)
     this.version = Specla.version
 
-    if (this.config.get('specla.runtime') === 'server') {
-      Specla.server = new Server(this.config)
-      this.server = Specla.server
-    }
-
     instance = this
   }
 
@@ -73,7 +61,6 @@ export default class Specla {
    */
   static reset () {
     instance = null
-    Specla.server = null
     Specla.config = configure(defaultConfig)
   }
 }

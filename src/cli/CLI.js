@@ -1,7 +1,10 @@
+import fs from 'fs'
+import path from 'path'
 import minimist from 'minimist'
 import Specla from '../'
 import speclaCommands from './commands'
 import Command from './Command'
+import autoloader from '@specla/autoloader'
 
 export default class CLI extends Specla {
   /**
@@ -35,7 +38,10 @@ export default class CLI extends Specla {
   constructor () {
     super({ 'specla.runtime': 'cli' })
     this._parseMinimistArgs()
-    this._registerSpeclaCommands()
+    this._loadCommands(speclaCommands)
+    this._loadCommands(
+      this._projectCommands()
+    )
 
     Command.args = this._args
     Command.options = this._options
@@ -55,10 +61,10 @@ export default class CLI extends Specla {
   }
 
   /**
-   * Register the specla commands
+   * Load the specla commands
    */
-  _registerSpeclaCommands () {
-    for (const command of speclaCommands) {
+  _loadCommands (commands) {
+    for (const command of commands) {
       if (typeof command.signature === 'string') {
         this._commands[command.signature] = command
       }
@@ -69,6 +75,22 @@ export default class CLI extends Specla {
         }
       }
     }
+  }
+
+  /**
+   * Load project commands
+   * @return {Array}
+   */
+  _projectCommands () {
+    const commandPath = path.join(
+      process.cwd(),
+      this.config.get('specla.build.path'),
+      this.config.get('specla.command.path')
+    )
+
+    if (!fs.existsSync(commandPath)) return []
+
+    return Object.values(autoloader(commandPath, { flatten: true }))
   }
 
   /**
