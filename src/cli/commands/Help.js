@@ -1,4 +1,5 @@
-import Command from '../Command'
+import Command from '../../command/Command'
+import { config } from '../../'
 
 export default class Help extends Command {
   /**
@@ -17,7 +18,7 @@ export default class Help extends Command {
    * Available command
    * @type {Object}
    */
-  _commands = Help.availableCommands
+  _commands = Command.availableCommands
 
   /**
    * Create a new instance of the help command

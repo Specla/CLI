@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import Command from '../Command'
+import Command from '../../command/Command'
 
 export default class Version extends Command {
   /**

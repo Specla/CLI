@@ -1,4 +1,4 @@
-import GeneratorCommand from '../GeneratorCommand'
+import GeneratorCommand from '../../command/GeneratorCommand'
 import Build from './build/Build'
 import { config } from '../../'
 

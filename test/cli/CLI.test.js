@@ -1,13 +1,8 @@
 /* eslint-env jest */
 import CLI from '../../src/cli/CLI'
-import Command from '../../src/cli/Command'
+import Command from '../../src/command'
 
 afterEach(() => CLI.reset())
-
-test('Should set runtime to cli', () => {
-  const cli = new CLI()
-  expect(cli.config.get('specla.runtime')).toBe('cli')
-})
 
 test('Should load the specla commands', () => {
   const cli = new CLI()

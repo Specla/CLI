@@ -1,5 +1,5 @@
 import fs from 'fs'
-import GeneratorCommand from '../GeneratorCommand'
+import GeneratorCommand from '../../command/GeneratorCommand'
 import { config } from '../../'
 
 export default class Create extends GeneratorCommand {

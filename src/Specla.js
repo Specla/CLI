@@ -1,7 +1,6 @@
 import configure from './config/configure'
 import defaultConfig from './config/defaultConfig'
 import { version } from '../package.json'
-import Command from './cli/Command'
 
 /**
  * Instance of the specla singleton
@@ -21,14 +20,6 @@ export default class Specla {
    * @type {Object}
    */
   static config = configure(defaultConfig)
-
-  /**
-   * Modules
-   * @type {Object}
-   */
-  static modules = {
-    Command
-  }
 
   /**
    * Create a new instance of Specla

@@ -1,5 +1,5 @@
 import { spawn } from 'child_process'
-import Command from '../../Command'
+import Command from '../../../command/Command'
 import { config } from '../../../'
 
 export default class Build extends Command {

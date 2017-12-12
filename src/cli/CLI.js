@@ -3,7 +3,7 @@ import path from 'path'
 import minimist from 'minimist'
 import Specla from '../'
 import speclaCommands from './commands'
-import Command from './Command'
+import Command from '../command/Command'
 import autoloader from '@specla/autoloader'
 
 export default class CLI extends Specla {
@@ -36,7 +36,7 @@ export default class CLI extends Specla {
    * @return {CLI}
    */
   constructor () {
-    super({ 'specla.runtime': 'cli' })
+    super()
     this._parseMinimistArgs()
     this._loadCommands(speclaCommands)
     this._loadCommands(

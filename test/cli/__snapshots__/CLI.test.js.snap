@@ -10,7 +10,6 @@ Object {
   "create": [Function],
   "create:command": [Function],
   "help": [Function],
-  "serve": [Function],
   "version": [Function],
 }
 `;
@@ -41,7 +40,6 @@ Help {
     "create": [Function],
     "create:command": [Function],
     "help": [Function],
-    "serve": [Function],
     "version": [Function],
   },
 }
