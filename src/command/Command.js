@@ -1,7 +1,43 @@
 import readline from 'readline'
 
 export default class Command {
+  /**
+   * CLI arguments
+   * @type {Array}
+   */
+  static args = []
+
+  /**
+   * CLI options
+   * @type {Object}
+   */
   static options = {}
+
+  /**
+   * Available commands
+   * @type {Object}
+   */
+  static availableCommands = {}
+
+  /**
+   * Check if option is set and return the value
+   * @param  {String} options
+   * @return {Mixed}
+   */
+  options (...options) {
+    for (const option of options) {
+      if (Command.options[option] !== undefined) return Command.options[option]
+    }
+  }
+
+  /**
+   * Alias for options method
+   * @param  {String} options
+   * @return {Mixed}
+   */
+  option (...options) {
+    return this.options(...options)
+  }
 
   /**
    * Listen for data on stdin
@@ -48,9 +84,9 @@ export default class Command {
 
   /**
    * Exit process with an exit code
-   * @param  {Number} [code=1]
+   * @param  {Number} [code=0]
    */
-  exit (code) {
+  exit (code = 0) {
     process.exit(code)
   }
 }

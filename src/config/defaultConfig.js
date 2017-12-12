@@ -1,9 +1,14 @@
+import path from 'path'
+
+/**
+ * Specla default config
+ * @type {Object}
+ */
 export default {
-  'app.name': 'app',
-  'specla.autoRegisterModules': true,
-  'specla.config.path': './config',
-  'specla.controller.path': './app/controllers',
-  'specla.command.path': './app/commands',
-  'specla.model.path': './app/models',
-  'specla.view.path': './src/views'
+  specla: {
+    'build.path': './build',
+    'src.path': './src',
+    'config.path': config => './' + path.join(config.get('specla.build.path'), 'config'),
+    'command.path': config => './' + path.join(config.get('specla.build.path'), 'commands')
+  }
 }

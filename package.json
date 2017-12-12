@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@specla/autoloader": "^2.0.0-1",
+    "@specla/config": "^1.2.1",
     "@specla/dot-string": "^2.0.0",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
@@ -50,8 +51,9 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.0.3",
     "babel-jest": "^21.2.0",
+    "babel-plugin-module-resolver": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "coveralls": "^3.0.0",
@@ -64,8 +66,7 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": [
-      "test",
-      "src/cli"
+      "test"
     ],
     "watchPathIgnorePatterns": [
       "tmp"
