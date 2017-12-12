@@ -25,7 +25,8 @@ export default class Build extends Command {
       '--ignore',
       ignore.join(','),
       '-d',
-      config.get('specla.build.path')
+      config.get('specla.build.path'),
+      '--source-maps'
     ]
 
     if (this.options('w', 'watch')) args.push('--watch')
